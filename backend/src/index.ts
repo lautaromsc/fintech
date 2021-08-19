@@ -6,6 +6,7 @@ import path from 'path'
 import indexRoutes from './routes/index-routes';
 import usersRoutes from './routes/users-routes';
 import litigiosRoutes from './routes/litigios.routes';
+import fintechRoutes from './routes/fintech.routes';
 
 
 class Server {
@@ -32,6 +33,7 @@ class Server {
         this.app.use('/', indexRoutes);
         this.app.use('/api/users', usersRoutes)
         this.app.use('/api/litigios', litigiosRoutes)
+        this.app.use('/api/fintech', fintechRoutes)
     }
 
     start(): void {
