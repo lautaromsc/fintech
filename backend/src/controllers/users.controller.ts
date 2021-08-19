@@ -1,7 +1,7 @@
 
 import { Request , Response } from 'express';
-import { pool } from '../connections/postgresql';
 import { QueryResult } from 'pg';
+import { pool } from '../connections/postgresql';
 
 
 class UsersController {
