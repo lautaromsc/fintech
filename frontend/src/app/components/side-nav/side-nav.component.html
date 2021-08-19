@@ -1,0 +1,67 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+
+    <mat-toolbar color="primary" class="example-toolbar">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="snav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <!--
+        <a style="cursor: pointer;">
+          <img src="./assets/blackhat.svg" routerLink="/">
+        </a>
+        -->
+
+        
+        <h1 class="example-app-name"> UNIVERSIDAD DE PALERMO</h1>
+
+
+        <div class="flex-stretch"></div>
+
+        
+        <button mat-button  routerLink="/example">
+          TP1
+        </button>
+
+        <button mat-button  routerLink="/example2">
+          TP2
+        </button>
+
+        <mat-icon class="mr-8">brightness_5</mat-icon>
+        <mat-slide-toggle [formControl]="toggleControl" class="mr-8"> </mat-slide-toggle>
+        <mat-icon>bedtime</mat-icon>
+
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <span>FINTECH Y MERCADO TRANSACCIONAL</span>
+        <span class="example-spacer"></span>
+        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+      </mat-toolbar-row>
+
+
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+
+
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+          <a mat-list-item [routerLink]="nav.navLink" *ngFor="let nav of fillerNav">{{nav.navitem}}</a>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+
+
+      <mat-sidenav-content>
+         <router-outlet> </router-outlet>
+      </mat-sidenav-content>
+
+
+    </mat-sidenav-container>
+
+  </div>
+  
+ 
+  
+  
