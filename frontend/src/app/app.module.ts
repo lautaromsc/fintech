@@ -27,12 +27,10 @@ import { HttpClientModule } from '@angular/common/http';
 let materials = [
   MatToolbarModule,
   MatSlideToggleModule,
-  ReactiveFormsModule,
   MatButtonModule,
   MatCardModule,
   MatIconModule,
   MatDialogModule,
-  FlexLayoutModule,
   MatFormFieldModule,
   MatInputModule,
   MatCheckboxModule,
@@ -52,7 +50,8 @@ let materials = [
     BrowserAnimationsModule,
     materials,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
