@@ -15,7 +15,7 @@
   
       <mat-card-content>
 
-          <mat-expansion-panel hideToggle #expansion  [expanded]="true" >
+          <mat-expansion-panel hideToggle #expansion [disabled]="true" [expanded]="true" >
               <mat-expansion-panel-header>
                   <mat-panel-title style="color:black" >
                        <h1>  ECHO TEST  </h1>
@@ -43,7 +43,6 @@
 
         <mat-card-content>
   
-
             <mat-expansion-panel hideToggle #expansion  [disabled]="true" [expanded]="true" >
                 <mat-expansion-panel-header>
                   
@@ -55,7 +54,7 @@
                 </mat-expansion-panel-header>
   
                 <div>
-                 <h2> {{ form.get('HEXA').value  }}  </h2> 
+                    <h2> {{ form.get('HEXA').value  }}  </h2> 
                 </div>
 
                 <form  [formGroup]="form" class="example-form">
@@ -69,7 +68,8 @@
                                 <input matInput formControlName="HEXA" >   
                             </mat-form-field>
                           </td>
-
+                        </tr>
+                        <tr> 
                           <td class="cellFormFilter">     
                             <mat-form-field appearance="fill"  class="example-full-width">
                               <mat-label>BINARY</mat-label>
@@ -78,13 +78,21 @@
                         </td>
   
                         </tr>
+
+                        <tr> 
+                            <td class="cellFormFilter">     
+                              <mat-form-field appearance="fill"  class="example-full-width">
+                                <mat-label>NIBBLE</mat-label>
+                                <input matInput formControlName="NIBBLE" >   
+                            </mat-form-field>
+                          </td>
+    
+                          </tr>
                     </table>
                 </form> 
                 
 
-
-
-                <button mat-raised-button  (click)="get()"> 
+                <button mat-raised-button  (click)="getBitMap()"> 
                     Convertir a Mapa de Bits 
                 </button>
 

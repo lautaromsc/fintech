@@ -40,6 +40,17 @@ export class TrabajoPractico1Component implements OnInit {
       this.mensajeError += JSON.stringify(err);
       this.showErr();
     });
+  }
+
+
+  public getBitMap(){
+    this._fintech.getBitMap(this.form.get('HEXA').value).subscribe(async(data: any) => {
+      this.response = data;
+      this.form.get('BINARY').setValue(data)
+    },(err) => {
+      console.log(err);
+      this.mensajeError += JSON.stringify(err);
+    });
 
   }
 
@@ -72,7 +83,7 @@ export class TrabajoPractico1Component implements OnInit {
     this.form = this._fb.group({
       HEXA: new FormControl({ value: null , disabled: false }),
       BINARY: new FormControl({ value: null , disabled: false }),
-      NEEBLE: new FormControl({ value: null , disabled: false }),
+      NIBBLE: new FormControl({ value: null , disabled: false }),
     });
   }
 

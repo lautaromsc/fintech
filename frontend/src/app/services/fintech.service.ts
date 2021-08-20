@@ -17,7 +17,7 @@ export class FintechService {
   }
 
 
-  getbyId(id: string){
+  getBitMap(id: string){
     return this.http.get(`${environment.API_URI}/fintech/${id}`)
   }
 }
