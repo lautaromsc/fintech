@@ -10,79 +10,95 @@
   <div clas="container" style="padding-top: 1rem; padding-left: 10rem; padding-right: 10rem">
   
 
-  
+
     <mat-card>
   
-        
+      <mat-card-content>
+
+          <mat-expansion-panel hideToggle #expansion  [expanded]="true" >
+              <mat-expansion-panel-header>
+                  <mat-panel-title style="color:black" >
+                       <h1>  ECHO TEST  </h1>
+                  </mat-panel-title>
+              </mat-expansion-panel-header>
+          
+              <button mat-raised-button  (click)="get()"> 
+                  ECHO REQUEST 
+              </button>
+          </mat-expansion-panel>
+
+      </mat-card-content>
+
+  </mat-card>
+
+
+
+
+
+
+
+
+  
+    <mat-card>
+
         <mat-card-content>
   
-  
+
             <mat-expansion-panel hideToggle #expansion  [disabled]="true" [expanded]="true" >
                 <mat-expansion-panel-header>
+                  
                     <mat-panel-title style="color:black" >
-                         <h1>  ECHO TEST  </h1>
+                         <h1>  CONVERSOR DE MAPA DE BITS  </h1>
                     </mat-panel-title>
   
 
                 </mat-expansion-panel-header>
   
-                <form  [formGroup]="formG" class="example-form">
+                <div>
+                 <h2> {{ form.get('HEXA').value  }}  </h2> 
+                </div>
+
+                <form  [formGroup]="form" class="example-form">
                     <table class="example-full-width"> 
   
                         <tr> 
   
                           <td class="cellFormFilter">     
                               <mat-form-field appearance="fill"  class="example-full-width">
-                                <mat-label>CAMPO 1</mat-label>
-                                <input matInput formControlName="TRA_DT_START" >   
-                            </mat-form-field>
-                          </td>
-  
-                        <td class="cellFormFilter">     
-                            <mat-form-field appearance="fill"  class="example-full-width">
-                              <mat-label>CAMPO 2</mat-label>
-                              <input matInput formControlName="TRA_DT_START" >   
-                          </mat-form-field>
-                        </td>
-  
-                        <td class="cellFormFilter">
-                          <mat-form-field appearance="fill"  class="example-full-width">
-                            <mat-label>CAMPO 3</mat-label>
-                            <input matInput formControlName="TRA_DT_START" >   
-                            </mat-form-field>
-                          </td>
-  
-                          <td class="cellFormFilter">
-                            <mat-form-field appearance="outline"  class="example-full-width">
-                                <mat-label>CAMPO 4</mat-label>
-                                <input matInput formControlName="TRA_DT_START" >   
+                                <mat-label>HEXA</mat-label>
+                                <input matInput formControlName="HEXA" >   
                             </mat-form-field>
                           </td>
 
-                          <td class="cellFormFilter">
-                            <mat-form-field appearance="outline"  class="example-full-width">
-                                <mat-label>CAMPO 4</mat-label>
-                                <input matInput formControlName="TRA_DT_START" >   
-                            </mat-form-field>
-                          </td>
+                          <td class="cellFormFilter">     
+                            <mat-form-field appearance="fill"  class="example-full-width">
+                              <mat-label>BINARY</mat-label>
+                              <input matInput formControlName="BINARY" >   
+                          </mat-form-field>
+                        </td>
   
                         </tr>
                     </table>
                 </form> 
-            
+                
+
+
+
                 <button mat-raised-button  (click)="get()"> 
-                    ECHO REQUEST 
+                    Convertir a Mapa de Bits 
                 </button>
+
+
             </mat-expansion-panel>
   
         </mat-card-content>
-  
-  
-  
-  
-  
+
     </mat-card>
     
+
+
+
+
   
   </div>
   

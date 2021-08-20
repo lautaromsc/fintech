@@ -14,7 +14,7 @@ export class TrabajoPractico1Component implements OnInit {
   public mensajeError: string = '';
   public error: boolean;
   public saveOk: boolean;
-  public formG: FormGroup;
+  public form: FormGroup;
   public reporte: FormGroup;
 
 
@@ -44,8 +44,6 @@ export class TrabajoPractico1Component implements OnInit {
   }
 
 
-
-
   async showOk(){
     return new Promise(async(resolve,reject) => {
         this.saveOk = true;
@@ -71,12 +69,8 @@ export class TrabajoPractico1Component implements OnInit {
 
 
   private initForm(): void{
-    this.formG = this._fb.group({
-      TRA_DT_START: new FormControl({ value: null , disabled: false }),
-      TRA_DT_END: new FormControl({ value: null , disabled: false }),
-      MPA_ID_PAIS: new FormControl({ value: '' , disabled: false }),
-      MG1_ID_GEO_1: new FormControl({ value: '' , disabled: false }),
-      OPCION: new FormControl({ value:'REPORTE_DINAMICO', disabled: false }),
+    this.form = this._fb.group({
+      HEXA: new FormControl({ value: null , disabled: false }),
     });
   }
 
