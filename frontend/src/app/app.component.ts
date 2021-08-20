@@ -1,7 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { SampleDialogComponent } from './components/sample-dialog/sample-dialog.component';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({

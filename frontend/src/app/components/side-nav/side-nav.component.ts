@@ -13,8 +13,8 @@ export class SideNavComponent  implements OnDestroy{
 
   mobileQuery: MediaQueryList;
   public fillerNav = [ 
-    {navitem:'Trabajo Práctico Número 1', navLink:'../example' },
-    {navitem:'Trabajo Práctico Número 2', navLink:'../example2' }  
+    {navitem:'Trabajo Práctico Número 1', navLink:'../tp1' },
+    {navitem:'Trabajo Práctico Número 2', navLink:'../tp2' }  
   ]
 
   private _mobileQueryListener: () => void;
