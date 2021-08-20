@@ -12,7 +12,7 @@ class FintechRoutes {
 
     config(): void{
         this.router.get('/', fintechController.get);
-        this.router.get('/:id', fintechController.get);
+        this.router.get('/:numero', fintechController.getIsoMap);
     }
 }
 
