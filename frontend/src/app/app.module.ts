@@ -21,6 +21,7 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { MatListModule } from '@angular/material/list';
 import { TrabajoPractico1Component } from './components/trabajo-practico1/trabajo-practico1.component';
 import { TrabajoPractico2Component } from './components/trabajo-practico2/trabajo-practico2.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 let materials = [
@@ -50,7 +51,8 @@ let materials = [
     BrowserModule,
     BrowserAnimationsModule,
     materials,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
