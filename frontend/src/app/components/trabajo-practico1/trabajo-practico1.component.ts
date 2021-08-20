@@ -71,6 +71,8 @@ export class TrabajoPractico1Component implements OnInit {
   private initForm(): void{
     this.form = this._fb.group({
       HEXA: new FormControl({ value: null , disabled: false }),
+      BINARY: new FormControl({ value: null , disabled: false }),
+      NEEBLE: new FormControl({ value: null , disabled: false }),
     });
   }
 
