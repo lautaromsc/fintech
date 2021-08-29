@@ -31,8 +31,16 @@ class FintechController {
             hexaToIso8583(hexString);
             const id = parseInt(req.params.numero)
 
+            var responseArray = []; // empty Object
+
+            responseArray.push(hexToBinary(hexString));
+            responseArray.push(hexaToIso8583(hexString));
+
+
+
+
             if (req.params.numero.length > 0) {
-                return res.status(200).json( hexToBinary(hexString))
+                return res.status(200).json(responseArray)
             } else {
                 return res.status(404).json({text: "Numero Invalido"})
             }

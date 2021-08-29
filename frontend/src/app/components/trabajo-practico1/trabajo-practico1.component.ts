@@ -46,7 +46,8 @@ export class TrabajoPractico1Component implements OnInit {
   public getBitMap(){
     this._fintech.getBitMap(this.form.get('HEXA').value).subscribe(async(data: any) => {
       this.response = data;
-      this.form.get('BINARY').setValue(data)
+      this.form.get('BINARY').setValue(data[0])
+        this.form.get('NIBBLE').setValue(data[1])
     },(err) => {
       console.log(err);
       this.mensajeError += JSON.stringify(err);
