@@ -10,7 +10,7 @@ class FintechController {
 
         try {
 
-            return res.status(200).json(`JUAN SE LA COME`)
+            return res.status(200).json(``)
            
         } catch (error) {
             console.log(error)
