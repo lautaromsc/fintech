@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FintechService } from 'src/app/services/fintech.service';
 
 
@@ -16,7 +16,7 @@ export class TrabajoPractico1Component implements OnInit {
   public saveOk: boolean;
   public form: FormGroup;
   public reporte: FormGroup;
-
+  private patronExpReg = new RegExp( /^([0-9A-Fa-f])+$/ );
 
   constructor(
     private _fintech: FintechService,
@@ -97,7 +97,7 @@ export class TrabajoPractico1Component implements OnInit {
 
   private initForm(): void{
     this.form = this._fb.group({
-      HEXA: new FormControl({ value: '3238050020C1801C'  , disabled: false }),
+      HEXA: new FormControl({ value: '3238050020C1801C'  , disabled: false }, [Validators.pattern(this.patronExpReg)]),
       BINARY: new FormControl({ value: null , disabled: false }),
       MAPABITS: new FormControl({ value: null , disabled: false }),
     });
