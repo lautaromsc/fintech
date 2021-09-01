@@ -97,7 +97,7 @@ export class TrabajoPractico1Component implements OnInit {
 
   private initForm(): void{
     this.form = this._fb.group({
-      HEXA: new FormControl({ value: '3238050020C1801C'  , disabled: false }, [Validators.pattern(this.patronExpReg)]),
+      HEXA: new FormControl({ value: null, disabled: false }, [Validators.pattern(this.patronExpReg), Validators.required]),
       BINARY: new FormControl({ value: null , disabled: false }),
       MAPABITS: new FormControl({ value: null , disabled: false }),
     });
