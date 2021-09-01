@@ -23,10 +23,10 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "ciso8583": "^1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "hex-to-binary": "^1.0.1",
-    "iso_8583": "^2.6.5",
     "morgan": "^1.10.0",
     "pg": "^8.0.3"
   }
