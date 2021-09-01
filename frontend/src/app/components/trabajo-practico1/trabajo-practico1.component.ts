@@ -46,8 +46,23 @@ export class TrabajoPractico1Component implements OnInit {
   public getBitMap(){
     this._fintech.getBitMap(this.form.get('HEXA').value).subscribe(async(data: any) => {
       this.response = data;
+
       this.form.get('BINARY').setValue(data[0])
-      this.form.get('MAPABITS').setValue(data[1].binaryBitmap)
+      console.log(data[0])
+      console.log(data[0].length)
+      let mapa: string='';
+      for(let i=0; i <= data[0].length ; i++ ) {
+
+        if ( data[0].charAt(i) == "1" ){
+          mapa += "F" + (i + 1) + " - ";
+        }
+
+      }
+
+      mapa = mapa.slice(0, mapa.length - 2)
+
+      this.form.get('MAPABITS').setValue(mapa)
+
     },(err) => {
       console.log(err);
       this.mensajeError += JSON.stringify(err);
@@ -82,7 +97,7 @@ export class TrabajoPractico1Component implements OnInit {
 
   private initForm(): void{
     this.form = this._fb.group({
-      HEXA: new FormControl({ value: null , disabled: false }),
+      HEXA: new FormControl({ value: '3238050020C1801C'  , disabled: false }),
       BINARY: new FormControl({ value: null , disabled: false }),
       MAPABITS: new FormControl({ value: null , disabled: false }),
     });
