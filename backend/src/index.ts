@@ -20,7 +20,7 @@ class Server {
     }
 
     config(): void {
-        this.app.set('port', process.env.PORT || 80);
+        this.app.set('port', process.env.PORT || 3000);
         this.app.use(morgan('dev'))     // this allow view the log request in the server console, it only a development dependencies
         this.app.use(cors());           // this allows angular makes request to this server
         this.app.use(express.json());
