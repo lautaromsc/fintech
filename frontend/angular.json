@@ -74,7 +74,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "angular-dark-mode:build",
-            "host":"0.0.0.0",
+            "host":"137.184.80.14",
             "port":1738
           },
           "configurations": {
