@@ -1,1 +1,24 @@
-<p>trabajo-practico2 works!</p>
+    <mat-card>
+  
+      <mat-card-content>
+
+          <mat-expansion-panel hideToggle #expansion [disabled]="true" [expanded]="true" >
+              <mat-expansion-panel-header>
+                  <mat-panel-title style="color:black" >
+                       <h1>  ECHO TEST  </h1>
+                  </mat-panel-title>
+              </mat-expansion-panel-header>
+          
+              <button mat-raised-button  (click)="get()"> 
+                  ECHO REQUEST 
+              </button>
+          </mat-expansion-panel>
+
+   
+                             <pre> {{response | json}}</pre>
+                    
+    
+
+      </mat-card-content>
+
+  </mat-card>
