@@ -10,7 +10,19 @@ class FintechController {
 
         try {
 
-            return res.status(200).json(``)
+           var uuid = require('uuid');
+
+            var response = {
+                status: true,
+                errorCode: '00',
+                msg: "Operacion correcta",
+                data: {},
+                transaccionId: uuid.v1(),
+                timeStampnew: new Date().toLocaleDateString()
+
+            }
+
+            return res.status(200).json(response)
            
         } catch (error) {
             console.log(error)
