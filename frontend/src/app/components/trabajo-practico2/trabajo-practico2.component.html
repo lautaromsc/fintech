@@ -1,24 +1,23 @@
-    <mat-card>
-  
-      <mat-card-content>
+<mat-card>
 
-          <mat-expansion-panel hideToggle #expansion [disabled]="true" [expanded]="true" >
-              <mat-expansion-panel-header>
-                  <mat-panel-title style="color:black" >
-                       <h1>  ECHO TEST  </h1>
-                  </mat-panel-title>
-              </mat-expansion-panel-header>
-          
-              <button mat-raised-button  (click)="get()"> 
-                  ECHO REQUEST 
-              </button>
-          </mat-expansion-panel>
+    <mat-card-content>
 
-   
-                             <pre> {{response | json}}</pre>
-                    
-    
+        <mat-expansion-panel hideToggle #expansion [disabled]="true" [expanded]="true" >
+            <mat-expansion-panel-header>
+                <mat-panel-title style="color:black" >
+                    <h1>  ECHO TEST  </h1>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+        
+            <div style="display: flex;"> 
+                <button mat-raised-button style="height: 20rem; width: 20rem;" (click)="get()"> 
+                    ECHO REQUEST 
+                </button>
+                <pre>  
+                    <h2> {{response | json}} </h2>  
+                </pre>
+            </div>
+        </mat-expansion-panel>
+    </mat-card-content>
 
-      </mat-card-content>
-
-  </mat-card>
+</mat-card>
