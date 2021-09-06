@@ -5,6 +5,7 @@ import { TrabajoPractico2Component } from './components/trabajo-practico2/trabaj
 
 
 const routes: Routes = [
+ { path: '', redirectTo: '/tp1', pathMatch: 'full'},
  { path: 'tp1',component: TrabajoPractico1Component },
  { path: 'tp2',component: TrabajoPractico2Component },
 ];

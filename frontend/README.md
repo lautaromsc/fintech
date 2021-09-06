@@ -1,5 +1,6 @@
-# Angular Material Dark Mode
+## Commands
 
-This is a companion demo app showing dark mode in Angular material. 
+`ssh ssh root@137.184.80.14`/ ssh ssh root@137.184.80.14
 
-[Check out this article](https://zoaibkhan.com/blog/angular-material-dark-mode-in-3-steps/) on adding a dark mode in Angular material using custom themes.
+
+

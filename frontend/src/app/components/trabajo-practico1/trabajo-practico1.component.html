@@ -17,41 +17,49 @@
                 <mat-expansion-panel-header>
                   
                     <mat-panel-title style="color:black" >
-                         <h1>  CONVERSOR DE MAPA DE BITS  </h1>
+                         <h1>  Conversor a mapa de bits  </h1>
                     </mat-panel-title>
   
 
                 </mat-expansion-panel-header>
   
+                <!--
                 <div>
                     <h2> {{ form.get('HEXA').value  }}  </h2> 
                 </div>
+                -->
+
 
                 <form  [formGroup]="form" class="example-form">
                     <table class="example-full-width"> 
   
                         <tr> 
-  
                           <td class="cellFormFilter">     
                               <mat-form-field appearance="fill"  class="example-full-width">
-                                <mat-label>HEXA</mat-label>
+                                <mat-label>Hexadecimal</mat-label>
                                 <input matInput formControlName="HEXA" >   
                             </mat-form-field>
+
+                            <div *ngIf="form.get('HEXA').errors?.pattern" style="padding: 0px !important;">
+                                <p class="text-danger" style="padding: 0px !important;"> Número Hexadecimal inválido</p>
+                           </div> 
+
                           </td>
+                        </tr>
 
-                          <td class="cellFormFilter">     
-                            <mat-form-field appearance="fill"  class="example-full-width">
-                                <mat-label>BINARY</mat-label>
-                                <input matInput formControlName="BINARY" >   
-                            </mat-form-field>
-                        </td>
-
+                        <tr> 
+                            <td class="cellFormFilter">     
+                                <mat-form-field appearance="fill"  class="example-full-width">
+                                    <mat-label>Binario</mat-label>
+                                    <input matInput formControlName="BINARY" >   
+                                </mat-form-field>
+                            </td>                           
                         </tr>
 
                         <tr>
-                            <td class="cellFormFilter">     
+                            <td class="cellFormFilter ">     
                                 <mat-form-field appearance="fill"  class="example-full-width">
-                                    <mat-label>MAPA DE BITS</mat-label>
+                                    <mat-label>Mapa de bits</mat-label>
                                     <input matInput formControlName="MAPABITS" >   
                                 </mat-form-field>
                             </td>
@@ -61,10 +69,12 @@
                     </table>
                 </form> 
                 
-
-                <button mat-raised-button  (click)="getBitMap()"> 
-                    Convertir a Mapa de Bits 
-                </button>
+                <div style="text-align: center;">
+                    <button mat-raised-button color="primary"  [disabled]="form.invalid" (click)="getBitMap()"> 
+                        Convertir a Mapa de Bits 
+                    </button>
+    
+                </div>
 
 
             </mat-expansion-panel>
