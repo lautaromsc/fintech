@@ -5,8 +5,8 @@ import path from 'path'
 class IndexController {
 
     public index (req: Request, res: Response){
-        //res.json({text: 'the API is /api/users'})
-        res.sendFile(path.join(__dirname, 'Estoy vivo!'))
+        res.json({text:  'I`m alive, the API is /api/fintech'})
+        // res.sendFile(path.join(__dirname, 'I`m alive, the API is /api/fintech'))
     }
 
 }
