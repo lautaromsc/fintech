@@ -14,3 +14,8 @@ run `pm2 save` to schedule your code to run at launch.</li>
 run `sudo ufw status`  view firewall setting and make any changes you need. By default, only SSH/SFTP (port 22), HTTP (port 80),, , HTTPS (port 443) and NodejsServer (port 3001) are open
 run `sudo ufw disable` disable this firewall by calling
 
+
+pgAdmin web: lautaromsc/123456
+
+sudo lsof -i :3000 --ver el puerto 3001
+kill -9 {PID}

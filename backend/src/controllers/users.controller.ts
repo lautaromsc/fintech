@@ -9,7 +9,7 @@ class UsersController {
 
     public async getUsers (req: Request, res: Response): Promise<Response> {
         try {
-            const response: QueryResult = await pool.query('SELECT * FROM users');
+            const response: QueryResult = await pool.query('SELECT * FROM public."users"');
             if (response.rowCount > 0) {
                 return res.status(200).json(response.rows)
             } else {
