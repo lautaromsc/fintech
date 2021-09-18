@@ -1,6 +1,7 @@
 
 import { Request , Response } from 'express';
 import { hexaToIso8583 } from '../services/iso8583';
+const jwt = require('jsonwebtoken');
 
 
 class FintechController {
@@ -53,6 +54,44 @@ class FintechController {
             return res.status(500).json("Internal Server Error")
         }
     }
+
+    public async login (req: Request, res: Response): Promise<Response>{
+
+        try {
+            let user = req.body.user;
+            let pwd = req.body.pwd;
+            // select a la bd
+            if (true){
+                // hay usuario.
+                const token = jwt.sign({user, pwd}, 'test')
+            return res.status(200).json(token);
+            } else {
+                return res.status(404).json({text: "Usuario y/o contraseña incorrecta"})
+            }
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json("Internal Server Error")
+        }
+    }
+
+    public async verify (req: Request, res: Response): Promise<Response>{
+
+        try {
+            let token = req.body.token;
+            const tokenValidated = jwt.verify(token, 'test', function(err, decoded) {
+                if (err){
+                    // hay usuario.
+                    return res.status(403).json({text: "Token Invalido, loguearse."})
+                } else {
+                    return res.status(200)
+                }
+            });
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json("Internal Server Error")
+        }
+    }
+
 }
 
 
