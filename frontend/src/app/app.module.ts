@@ -10,7 +10,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
@@ -22,6 +21,7 @@ import { MatListModule } from '@angular/material/list';
 import { TrabajoPractico1Component } from './components/trabajo-practico1/trabajo-practico1.component';
 import { TrabajoPractico2Component } from './components/trabajo-practico2/trabajo-practico2.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TrabajoPractico3Component } from './components/trabajo-practico3/trabajo-practico3.component';
 
 
 let materials = [
@@ -44,6 +44,7 @@ let materials = [
     SideNavComponent,
     TrabajoPractico1Component,
     TrabajoPractico2Component,
+    TrabajoPractico3Component
   ],
   imports: [
     BrowserModule,
