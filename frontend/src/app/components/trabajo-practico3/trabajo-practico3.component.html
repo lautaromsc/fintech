@@ -37,10 +37,10 @@
                           <td class="cellFormFilter">     
                               <mat-form-field appearance="fill"  class="example-full-width">
                                 <mat-label>Nombre de Usuario</mat-label>
-                                <input matInput formControlName="HEXA" >   
+                                <input matInput formControlName="NAME" >   
                             </mat-form-field>
 
-                            <div *ngIf="form.get('HEXA').errors?.pattern" style="padding: 0px !important;">
+                            <div *ngIf="form.get('NAME').errors?.pattern" style="padding: 0px !important;">
                                 <p class="text-danger" style="padding: 0px !important;"> Número Hexadecimal inválido</p>
                            </div> 
 
@@ -51,7 +51,7 @@
                             <td class="cellFormFilter">     
                                 <mat-form-field appearance="fill"  class="example-full-width">
                                     <mat-label>Contrasena</mat-label>
-                                    <input matInput formControlName="BINARY" >   
+                                    <input matInput formControlName="PASSWORD" >   
                                 </mat-form-field>
                             </td>                           
                         </tr>
@@ -59,13 +59,22 @@
        
                     </table>
                 </form> 
-                
-                <div style="text-align: center;">
-                    <button mat-raised-button color="primary"  [disabled]="form.invalid" (click)="getBitMap()"> 
+              <div class="container-fluid">
+                <div class="d-inline col-md-6" style="text-align: center;">
+                    <button mat-raised-button color="primary"  [disabled]="form.invalid" (click)="logIn()"> 
                         Autenticar
                     </button>
     
                 </div>
+
+                  <div class="d-inline col-md-6" style="text-align: center;">
+                    <button mat-raised-button color="secondary"  (click)="registrarse()"> 
+                        registrarse
+                    </button>
+    
+                </div>
+
+              </div>  
 
 
             </mat-expansion-panel>

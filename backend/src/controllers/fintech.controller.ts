@@ -84,9 +84,12 @@ class FintechController {
 
         try {
             let name = req.body.name;
-            let pwd = req.body.pwd;
+            let pwd = req.body.password;
+
+            console.log(name);
+            console.log(pwd);
             const exist = await pool.query('SELECT * FROM users where name = $1 and pwd = $2', [name, pwd]);
-            if (exist){
+            if (exist.rowCount > 0) {
                 const token = jwt.sign({name, pwd}, 'test')
             return res.status(200).json(token);
             } else {

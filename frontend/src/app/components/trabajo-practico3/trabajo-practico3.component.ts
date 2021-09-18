@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FintechService } from 'src/app/services/fintech.service';
-
-
+import md5 from 'md5'
 @Component({
   selector: 'app-trabajo-practico3',
   templateUrl: './trabajo-practico3.component.html',
@@ -17,7 +16,7 @@ export class TrabajoPractico3Component implements OnInit {
   public saveOk: boolean;
   public form: FormGroup;
   public reporte: FormGroup;
-  private patronExpReg = new RegExp( /^([0-9A-Fa-f])+$/ );
+  //private patronExpReg = new RegExp( /^([0-9A-Fa-f])+$/ );
 
   constructor(
     private _fintech: FintechService,
@@ -44,11 +43,21 @@ export class TrabajoPractico3Component implements OnInit {
   }
 
 
-  public getBitMap(){
-    this._fintech.getBitMap(this.form.get('HEXA').value).subscribe(async(data: any) => {
+  public logIn(){
+
+
+  let pass=md5(this.form.get('PASSWORD').value);
+
+
+     let body={
+       'name': this.form.get('NAME').value,
+       'password' : pass
+     }
+
+      this._fintech.logIn(body).subscribe(async(data: any) => {
       this.response = data;
 
-      this.form.get('BINARY').setValue(data[0])
+      this.form.get('NAME').setValue(data[0])
       console.log(data[0])
       console.log(data[0].length)
       let mapa: string='';
@@ -93,13 +102,24 @@ export class TrabajoPractico3Component implements OnInit {
        }, 2000);
     });
   }
+
+    async registrarse(){
+    return new Promise(async(resolve,reject) => {
+        this.error = true;
+        setTimeout(()=>{   
+         console.log("  this.saveOk = false; ")                      
+         this.error = false;
+          resolve(true)
+       }, 2000);
+    });
+  }
   
 
 
   private initForm(): void{
     this.form = this._fb.group({
-      HEXA: new FormControl({ value: null, disabled: false }, [Validators.pattern(this.patronExpReg), Validators.required]),
-      BINARY: new FormControl({ value: null , disabled: false }),
+      NAME: new FormControl({ value: null, disabled: false }, [ Validators.required]),
+      PASSWORD: new FormControl({ value: null, disabled: false }, [ Validators.required]),
       MAPABITS: new FormControl({ value: null , disabled: false }),
     });
   }
