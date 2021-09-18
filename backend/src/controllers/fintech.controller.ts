@@ -1,5 +1,6 @@
 
 import { Request , Response } from 'express';
+import { pool } from '../connections/postgresql';
 import { hexaToIso8583 } from '../services/iso8583';
 const jwt = require('jsonwebtoken');
 
@@ -55,15 +56,38 @@ class FintechController {
         }
     }
 
+    public async register (req: Request, res: Response): Promise<Response>{
+
+        try {
+            console.log(req.body)
+            const { name, email, pwd} = req.body;
+            console.log(name)
+            console.log(email)
+            console.log(pwd)
+            const response = await pool.query('INSERT INTO users (name, email, pwd) values ($1, $2, $3)', [name, email, pwd]);
+            return res.json({
+                message: 'User register succesfull', 
+                body: {
+                    user: {
+                        name,
+                        email
+                    }
+                }
+            })
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json("Internal Server Error")
+        }
+    }
+
     public async login (req: Request, res: Response): Promise<Response>{
 
         try {
-            let user = req.body.user;
+            let name = req.body.name;
             let pwd = req.body.pwd;
-            // select a la bd
-            if (true){
-                // hay usuario.
-                const token = jwt.sign({user, pwd}, 'test')
+            const exist = await pool.query('SELECT * FROM users where name = $1 and pwd = $2', [name, pwd]);
+            if (exist){
+                const token = jwt.sign({name, pwd}, 'test')
             return res.status(200).json(token);
             } else {
                 return res.status(404).json({text: "Usuario y/o contraseña incorrecta"})
@@ -78,17 +102,12 @@ class FintechController {
 
         try {
             let token = req.body.token;
-            const tokenValidated = jwt.verify(token, 'test', function(err, decoded) {
-                if (err){
-                    // hay usuario.
-                    return res.status(403).json({text: "Token Invalido, loguearse."})
-                } else {
-                    return res.status(200)
-                }
-            });
+            console.log(token);
+            const verify = await jwt.verify(token, 'test')
+            console.log(verify)
+            return res.status(200).json({ok: 'ok'});
         } catch (error) {
-            console.log(error)
-            return res.status(500).json("Internal Server Error")
+            return res.status(403).json({text: "Token Invalido, loguearse."})
         }
     }
 
