@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TrabajoPractico3Component } from './components/trabajo-practico3/trabajo-practico3.component';
 
 
+
 let materials = [
   MatToolbarModule,
   MatSlideToggleModule,
@@ -44,7 +45,7 @@ let materials = [
     SideNavComponent,
     TrabajoPractico1Component,
     TrabajoPractico2Component,
-    TrabajoPractico3Component
+    TrabajoPractico3Component,
   ],
   imports: [
     BrowserModule,

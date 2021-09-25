@@ -10,6 +10,9 @@ const routes: Routes = [
  { path: 'tp1',component: TrabajoPractico1Component },
  { path: 'tp2',component: TrabajoPractico2Component },
  { path: 'tp3',component: TrabajoPractico3Component },
+
+ { path: 'login', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule) }
+ 
 ];
 
 

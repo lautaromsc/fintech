@@ -1,0 +1,31 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+        <div class="fadeIn first">
+            <h1 style="font-size: 30px; padding: 3rem;"> UNIVERSIDAD DE PALERMO  </h1>
+            <!--
+            <img src="/assets/blackhat.png" id="icon" alt="User Icon" />
+            -->
+
+       
+           
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="contenedor-label">
+                <label>Usuario</label>
+                <input type="text" id="login" formControlName="username" class="fadeIn second">
+            </div>
+            <div class="contenedor-label">
+                <label>Contraseña</label>
+                <input type="password" id="password" formControlName="password" class="fadeIn third">
+            </div>
+            <input type="submit" class="fadeIn fourth" value="Iniciar Session">
+        </form>
+
+        <div id="formFooter ">
+            <a class="underlineHover " href="# ">¿Olvidó tu clave?</a>
+        </div>
+
+    </div>
+</div>
