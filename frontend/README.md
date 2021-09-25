@@ -19,3 +19,6 @@ pgAdmin web: lautaromsc/123456
 
 sudo lsof -i :3000 --ver el puerto 3001
 kill -9 {PID}
+
+
+run `ng g module modules/reportes --route reportes --module app.module` to create a module with their routing and import dynamically into appmodule
