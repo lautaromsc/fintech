@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FintechService } from 'src/app/services/fintech.service';
 import md5 from 'md5'
+
 @Component({
   selector: 'app-trabajo-practico3',
   templateUrl: './trabajo-practico3.component.html',
