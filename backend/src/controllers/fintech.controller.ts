@@ -1,6 +1,8 @@
 
 import { Request , Response } from 'express';
+import { pool } from '../connections/postgresql';
 import { hexaToIso8583 } from '../services/iso8583';
+const jwt = require('jsonwebtoken');
 
 
 class FintechController {
@@ -53,6 +55,65 @@ class FintechController {
             return res.status(500).json("Internal Server Error")
         }
     }
+
+    public async register (req: Request, res: Response): Promise<Response>{
+
+        try {
+            console.log(req.body)
+            const { name, email, pwd} = req.body;
+            console.log(name)
+            console.log(email)
+            console.log(pwd)
+            const response = await pool.query('INSERT INTO users (name, email, pwd) values ($1, $2, $3)', [name, email, pwd]);
+            return res.json({
+                message: 'User register succesfull', 
+                body: {
+                    user: {
+                        name,
+                        email
+                    }
+                }
+            })
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json("Internal Server Error")
+        }
+    }
+
+    public async login (req: Request, res: Response): Promise<Response>{
+
+        try {
+            let name = req.body.username;
+            let pwd = req.body.password;
+
+            console.log(name);
+            console.log(pwd);
+            const exist = await pool.query('SELECT * FROM users where name = $1 and pwd = $2', [name, pwd]);
+            if (exist.rowCount > 0) {
+                const token = jwt.sign({name, pwd}, 'test')
+            return res.status(200).json(token);
+            } else {
+                return res.status(404).json({text: "Usuario y/o contraseña incorrecta"})
+            }
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json("Internal Server Error")
+        }
+    }
+
+    public async verify (req: Request, res: Response): Promise<Response>{
+
+        try {
+            let token = req.body.token;
+            console.log(token);
+            const verify = await jwt.verify(token, 'test')
+            console.log(verify)
+            return res.status(200).json({ok: 'ok'});
+        } catch (error) {
+            return res.status(403).json({text: "Token Invalido, loguearse."})
+        }
+    }
+
 }
 
 

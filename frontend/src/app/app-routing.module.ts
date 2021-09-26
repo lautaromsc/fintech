@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TrabajoPractico1Component } from './components/trabajo-practico1/trabajo-practico1.component';
-import { TrabajoPractico2Component } from './components/trabajo-practico2/trabajo-practico2.component';
+import { NotFound404Component } from './components/not-found404/not-found404.component';
 
 
 const routes: Routes = [
- { path: '', redirectTo: '/tp1', pathMatch: 'full'},
- { path: 'tp1',component: TrabajoPractico1Component },
- { path: 'tp2',component: TrabajoPractico2Component },
+ { path: '', redirectTo: '/login/signin', pathMatch: 'full'},
+ { path: 'login', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule) },
+ { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
+ { path: "**", component: NotFound404Component }
+
 ];
 
 

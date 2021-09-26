@@ -1,6 +1,6 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { OverlayContainer } from '@angular/cdk/overlay';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,24 +8,19 @@ import { OverlayContainer } from '@angular/cdk/overlay';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Angular material dark mode';
+  title = 'Fintech';
 
-  @HostBinding('class') className = '';
 
   toggleControl = new FormControl(false);
 
-  constructor(private overlay: OverlayContainer) { }
+  constructor(private _route: Router) { 
+    this._route.navigate(['login/signin']);
+  }
 
   ngOnInit(): void {
-    this.toggleControl.valueChanges.subscribe((darkMode) => {
-      const darkClassName = 'darkMode';
-      this.className = darkMode ? darkClassName : '';
-      if (darkMode) {
-        this.overlay.getContainerElement().classList.add(darkClassName);
-      } else {
-        this.overlay.getContainerElement().classList.remove(darkClassName);
-      }
-    });
+
+
+
   }
 
 

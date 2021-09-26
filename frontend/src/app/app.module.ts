@@ -10,19 +10,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { AppRoutingModule } from './app-routing.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { MatListModule } from '@angular/material/list';
-import { TrabajoPractico1Component } from './components/trabajo-practico1/trabajo-practico1.component';
-import { TrabajoPractico2Component } from './components/trabajo-practico2/trabajo-practico2.component';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { InterceptorService } from './services/interceptor.service';
+import { ServerError505Component } from './components/server-error505/server-error505.component';
+import { NotFound404Component } from './components/not-found404/not-found404.component';
 
 let materials = [
   MatToolbarModule,
@@ -41,9 +40,8 @@ let materials = [
 @NgModule({
   declarations: [
     AppComponent,
-    SideNavComponent,
-    TrabajoPractico1Component,
-    TrabajoPractico2Component,
+    ServerError505Component,
+    NotFound404Component
   ],
   imports: [
     BrowserModule,
@@ -51,9 +49,12 @@ let materials = [
     materials,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
