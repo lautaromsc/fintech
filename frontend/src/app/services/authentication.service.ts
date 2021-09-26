@@ -33,4 +33,14 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
         this.usuarioActualSubject.next(null);
     }
+
+    register(name: string, email: string, password: string) {
+        return this.http.post<any>(`${environment.apiUrl}/api/fintech/register/`, { name, email, password })
+            .pipe(map(user => {
+                //localStorage.setItem('currentUser', JSON.stringify(user));
+                //this.usuarioActualSubject.next(user);
+                return user;
+            }));
+    }
+
 }

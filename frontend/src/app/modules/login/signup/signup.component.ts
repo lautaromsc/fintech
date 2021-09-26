@@ -29,6 +29,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: [''],
+      email: [''],
       password: ['']
     })
   }
@@ -38,7 +39,7 @@ export class SignupComponent implements OnInit {
 
   public login = () => {
     
-    this.AuthenticationService.login(this.form.username.value, md5(this.form.password.value) )
+    this.AuthenticationService.register(this.form.username.value, this.form.email.value, md5(this.form.password.value) )
       .pipe(first())
       .subscribe(
         data => {
