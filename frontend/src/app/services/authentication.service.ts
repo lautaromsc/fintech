@@ -34,8 +34,8 @@ export class AuthenticationService {
         this.usuarioActualSubject.next(null);
     }
 
-    register(name: string, email: string, password: string) {
-        return this.http.post<any>(`${environment.apiUrl}/api/fintech/register/`, { name, email, password })
+    register(name: string, email: string, pwd: string) {
+        return this.http.post<any>(`${environment.apiUrl}/api/fintech/register/`, { name, email, pwd })
             .pipe(map(user => {
                 //localStorage.setItem('currentUser', JSON.stringify(user));
                 //this.usuarioActualSubject.next(user);
