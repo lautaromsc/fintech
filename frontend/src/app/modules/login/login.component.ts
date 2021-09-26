@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  hide = true;
   loginForm: FormGroup;
   loading: boolean;
   error: string;
