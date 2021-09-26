@@ -3,7 +3,7 @@
 run `ssh ssh root@137.184.80.14`/ ssh ssh root@137.184.80.14
 
 run `pm2 start "ng serve --prod --host 0.0.0.0" --name frontend`
-run ``
+run `pm2 save2`
 
 run `pm2 start "index.js" --name backend`
 run `pm2 save2`
