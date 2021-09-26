@@ -17,6 +17,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 let materials = [
@@ -36,7 +38,7 @@ let materials = [
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, SigninComponent, SignupComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
