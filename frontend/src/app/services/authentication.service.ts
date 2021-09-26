@@ -20,7 +20,7 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string) {
-        return this.http.post<any>(`${environment.apiUrl}/api/authenticate`, { username, password, "rememberMe": true })
+        return this.http.post<any>(`${environment.apiUrl}/api/fintech/login/`, { username, password })
             .pipe(map(user => {
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 this.usuarioActualSubject.next(user);

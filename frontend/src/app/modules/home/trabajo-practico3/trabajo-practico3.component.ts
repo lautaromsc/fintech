@@ -16,8 +16,7 @@ export class TrabajoPractico3Component implements OnInit {
   public error: boolean;
   public saveOk: boolean;
   public form: FormGroup;
-  public reporte: FormGroup;
-  //private patronExpReg = new RegExp( /^([0-9A-Fa-f])+$/ );
+
 
   constructor(
     private _fintech: FintechService,
@@ -27,7 +26,7 @@ export class TrabajoPractico3Component implements OnInit {
   }
 
   ngOnInit(): void {
-    this.get()
+ 
   }
 
 
@@ -46,34 +45,14 @@ export class TrabajoPractico3Component implements OnInit {
 
   public logIn(){
 
-
-  let pass=md5(this.form.get('PASSWORD').value);
-
-
-     let body={
+    const pass = md5(this.form.get('PASSWORD').value);
+    const body = {
        'name': this.form.get('NAME').value,
        'password' : pass
      }
 
-      this._fintech.logIn(body).subscribe(async(data: any) => {
+    this._fintech.logIn(body).subscribe(async(data: any) => {
       this.response = data;
-
-      this.form.get('NAME').setValue(data[0])
-      console.log(data[0])
-      console.log(data[0].length)
-      let mapa: string='';
-      for(let i=0; i <= data[0].length ; i++ ) {
-
-        if ( data[0].charAt(i) == "1" ){
-          mapa += "F" + (i + 1) + " - ";
-        }
-
-      }
-
-      mapa = mapa.slice(0, mapa.length - 2)
-
-      this.form.get('MAPABITS').setValue(mapa)
-
     },(err) => {
       console.log(err);
       this.mensajeError += JSON.stringify(err);
@@ -121,8 +100,9 @@ export class TrabajoPractico3Component implements OnInit {
     this.form = this._fb.group({
       NAME: new FormControl({ value: null, disabled: false }, [ Validators.required]),
       PASSWORD: new FormControl({ value: null, disabled: false }, [ Validators.required]),
-      MAPABITS: new FormControl({ value: null , disabled: false }),
     });
+
+
   }
 
 
