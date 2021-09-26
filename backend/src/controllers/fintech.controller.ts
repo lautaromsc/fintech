@@ -83,7 +83,7 @@ class FintechController {
     public async login (req: Request, res: Response): Promise<Response>{
 
         try {
-            let name = req.body.name;
+            let name = req.body.username;
             let pwd = req.body.password;
 
             console.log(name);
