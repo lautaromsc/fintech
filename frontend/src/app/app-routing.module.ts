@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TrabajoPractico1Component } from './components/trabajo-practico1/trabajo-practico1.component';
-import { TrabajoPractico2Component } from './components/trabajo-practico2/trabajo-practico2.component';
-import { TrabajoPractico3Component } from './components/trabajo-practico3/trabajo-practico3.component';
 
 
 const routes: Routes = [
- { path: '', redirectTo: '/tp3', pathMatch: 'full'},
- { path: 'tp1',component: TrabajoPractico1Component },
- { path: 'tp2',component: TrabajoPractico2Component },
- { path: 'tp3',component: TrabajoPractico3Component },
+ { path: '', redirectTo: '/home/tp1', pathMatch: 'full'},
 
- { path: 'login', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule) }
+
+ { path: 'login', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule) },
+ { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) }
  
 ];
 
