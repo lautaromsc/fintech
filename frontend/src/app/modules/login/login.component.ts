@@ -12,10 +12,10 @@ import md5 from 'md5'
 })
 
 export class LoginComponent implements OnInit {
-  hide = true;
-  loginForm: FormGroup;
-  loading: boolean;
-  error: string;
+  public hide = true;
+  public loginForm: FormGroup;
+  public loading: boolean;
+  public error: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,16 +32,17 @@ export class LoginComponent implements OnInit {
       password: ['']
     })
   }
+  
   get form() { return this.loginForm.controls; }
 
 
   public login = () => {
-
+    
     this.AuthenticationService.login(this.form.username.value, md5(this.form.password.value) )
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['home']);
+          this.router.navigate(['home/tp1']);
         },
         error => {
           this.error = error;

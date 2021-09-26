@@ -1,6 +1,6 @@
-import {MediaMatcher} from '@angular/cdk/layout';
+import { MediaMatcher } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import {ChangeDetectorRef, Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
+import { ChangeDetectorRef, Component, HostBinding, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 
@@ -13,9 +13,9 @@ export class SideNavComponent  implements OnDestroy{
 
   mobileQuery: MediaQueryList;
   public fillerNav = [ 
-    {navitem:'Trabajo Práctico Número 1', navLink:'../tp1' },
-    {navitem:'Trabajo Práctico Número 2', navLink:'../tp2' },  
-    {navitem:'Trabajo Práctico Número 3', navLink:'../tp3' }  
+    {navitem:'Trabajo Práctico Número 1', navLink:'../home/tp1' },
+    {navitem:'Trabajo Práctico Número 2', navLink:'../home/tp2' },  
+    {navitem:'Trabajo Práctico Número 3', navLink:'../home/tp3' }  
   ]
 
   private _mobileQueryListener: () => void;
