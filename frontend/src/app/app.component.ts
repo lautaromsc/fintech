@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   toggleControl = new FormControl(false);
 
   constructor(private _route: Router) { 
-    this._route.navigate(['login']);
+    //this._route.navigate(['login']);
   }
 
   ngOnInit(): void {

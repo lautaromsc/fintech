@@ -20,6 +20,8 @@ import { MatListModule } from '@angular/material/list';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { InterceptorService } from './services/interceptor.service';
+import { ServerError505Component } from './components/server-error505/server-error505.component';
+import { NotFound404Component } from './components/not-found404/not-found404.component';
 
 let materials = [
   MatToolbarModule,
@@ -38,6 +40,8 @@ let materials = [
 @NgModule({
   declarations: [
     AppComponent,
+    ServerError505Component,
+    NotFound404Component
   ],
   imports: [
     BrowserModule,
