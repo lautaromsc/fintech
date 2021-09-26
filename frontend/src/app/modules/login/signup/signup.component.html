@@ -1,1 +1,37 @@
-<p>signup works!</p>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+        <div>
+            <h1> UNIVERSIDAD DE PALERMO  </h1>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput  formControlName="username" >
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <input type="submit" class="fadeIn fourth" value="Sign in">
+
+        </form>
+
+        <div id="formFooter">
+            <a class="underlineHover" routerLink="../signin">Already have an account? Sign in </a>
+        </div>
+
+    </div>
+</div>
