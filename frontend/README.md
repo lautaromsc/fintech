@@ -2,8 +2,8 @@
 
 run `ssh ssh root@137.184.80.14`/ ssh ssh root@137.184.80.14
 
-run `pm2 start "ng serve --host 0.0.0.0" --name frontend`
-run `pm2 save2`
+run `pm2 start "ng serve --prod --host 0.0.0.0" --name frontend`
+run ``
 
 run `pm2 start "index.js" --name backend`
 run `pm2 save2`
@@ -22,3 +22,10 @@ kill -9 {PID}
 
 
 run `ng g module modules/reportes --route reportes --module app.module` to create a module with their routing and import dynamically into appmodule
+
+
+
+The login and password are stored in the NODE_USER* values you see when you call  cat /root/.digitalocean_passwords
+
+map the port your app runs on to an HTTP URL by running `nano /etc/nginx/sites-available/default` and adding another location. Us
+e the existing entry for the port 3000 "hello" app as a basis. Call `sudo systemctl restart nginx` to enable your new nginx config.
