@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import md5 from 'md5'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signin',
@@ -15,12 +16,13 @@ export class SigninComponent implements OnInit {
   public hide = true;
   public loginForm: FormGroup;
   public loading: boolean;
-  public error: string;
+  public error: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
     private AuthenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) { }
 
 
@@ -37,7 +39,7 @@ export class SigninComponent implements OnInit {
 
 
   public login = () => {
-    
+    this.error = false
     this.AuthenticationService.login(this.form.username.value, md5(this.form.password.value) )
       .pipe(first())
       .subscribe(
@@ -45,9 +47,18 @@ export class SigninComponent implements OnInit {
           this.router.navigate(['home/tp1']);
         },
         error => {
-          this.error = error;
+          this.error = true;
           this.loading = false;
+          //this.openSnackBar()
         });
+  }
+
+
+  openSnackBar() {
+    this._snackBar.open('Username or Password incorrect!', 'Close', {
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
   }
 
 

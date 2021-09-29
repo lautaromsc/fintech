@@ -9,7 +9,7 @@
 
 
             <mat-form-field appearance="fill">
-                <mat-label>Username or email address</mat-label>
+                <mat-label>Username</mat-label>
                 <input matInput  formControlName="username" >
               </mat-form-field>
 
@@ -19,10 +19,12 @@
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+              
+
             </mat-form-field>
-
+            
             <input type="submit" class="fadeIn fourth" value="Sign in">
-
+            <p class="text-danger" *ngIf="error" style="font-size: 18px;" > Username or password incorrect</p>
         </form>
 
         <div id="formFooter">

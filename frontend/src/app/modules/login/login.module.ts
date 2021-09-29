@@ -19,7 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 let materials = [
   MatToolbarModule,
@@ -33,7 +33,8 @@ let materials = [
   MatCheckboxModule,
   MatExpansionModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatSnackBarModule
 ]
 
 
