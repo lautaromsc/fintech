@@ -66,7 +66,7 @@ class FintechController {
             console.log(pwd)
             const response = await pool.query('INSERT INTO users (name, email, pwd) values ($1, $2, $3)', [name, email, pwd]);
             return res.json({
-                message: 'User register succesfull', 
+                message: 'User register successful', 
                 body: {
                     user: {
                         name,
@@ -113,6 +113,102 @@ class FintechController {
             return res.status(403).json({text: "Token Invalido, loguearse."})
         }
     }
+
+    public async createTransfer (req: Request, res: Response): Promise<Response>{
+        try {
+            let { fromCvu, toCvu, amount } = req.body;
+            console.log(fromCvu);
+            console.log(toCvu);
+            console.log(amount);
+            const account = await pool.query('SELECT * FROM accounts where cvu = $1', [fromCvu]);
+            console.log(account);
+            if(account[0].amount < amount){
+                return res.json({
+                    message: 'monton en cuenta insuficiente', 
+                })
+            }
+            //TODO: restarle monto a la cuenta.
+            const response = await pool.query('INSERT INTO transfers (from_cvu, to_cvu, amount) values ($1, $2, $3)', [fromCvu, toCvu, amount]);
+            console.log(response)
+            return res.json({
+                message: 'Transfer successful', 
+                body: {
+                    transfer: {
+                        fromCvu,
+                        toCvu,
+                        amount
+                    }
+                }
+            })
+        } catch (error) {
+            return res.status(403).json({text: "unauthorized."})
+        }
+    }
+
+    public async getTransfer (req: Request, res: Response): Promise<Response>{
+        try {
+            let { cvu } = req.params;
+            console.log(cvu);
+            const transfersSend = await pool.query('SELECT * FROM transfer where from_cvu = $1', [cvu]);
+            console.log(transfersSend);
+            const transfersReceived = await pool.query('SELECT * FROM transfer where to_cvu = $1', [cvu]);
+            console.log(transfersReceived);
+            return res.json({
+                message: 'Transfer successful', 
+                body: {
+                    transfersSend: {
+                        ...transfersSend
+                    },
+                    transfersReceived: {
+                        ...transfersReceived
+                    }
+                }
+            })
+        } catch (error) {
+            return res.status(403).json({text: "unauthorized."})
+        }
+    }
+
+    public async createAccount (req: Request, res: Response): Promise<Response>{
+        try {
+            let { userId } = req.params;
+            console.log(userId);
+            
+            const cvu =`00000277${Math.floor(1000000000000 + Math.random() * 9000000000000)}`;
+            console.log(cvu);
+            const words = ["hola", "zorro", "kilogramo","viento", "diente", "cabello", "fuego", "lluvia", "manteca", "salchicha", "milanesa", "papu", "maestro", "choclo", "pierna"]
+            const alias = `${words[Math.floor(Math.random()*words.length)]}.${words[Math.floor(Math.random()*words.length)]}.${words[Math.floor(Math.random()*words.length)]}`;
+            console.log(alias);
+            const response = await pool.query('INSERT INTO transfers (cvu, alias, amount) values ($1, $2, $3)', [cvu, alias, '10000']);
+            console.log(response);
+            return res.json({
+                message: 'accounts created', 
+                body: {
+                    ...response
+                }
+            })
+        } catch (error) {
+            return res.status(403).json({text: "unauthorized."})
+        }
+    }
+
+    public async getAccount (req: Request, res: Response): Promise<Response>{
+        try {
+            let { userId } = req.params;
+            console.log(userId);
+            const response = await pool.query('SELECT * FROM accounts where userid = $1', [userId]);
+            console.log(response);
+            return res.json({
+                message: 'accounts created', 
+                body: {
+                    ...response
+                }
+            })
+        } catch (error) {
+            return res.status(403).json({text: "unauthorized."})
+        }
+    }
+
 
 }
 

@@ -16,6 +16,11 @@ class FintechRoutes {
         this.router.post('/login', fintechController.login);
         this.router.post('/verify', fintechController.verify);
         this.router.post('/register', fintechController.register);
+        this.router.post('/account/:userId', fintechController.createAccount);
+        this.router.get('/account/:userId', fintechController.getAccount);
+        // this.router.delete('/account', fintechController.deleteAccount);
+        this.router.post('/transfer', fintechController.createTransfer);
+        this.router.get('/transfer/:cvu', fintechController.getTransfer);
     }
 }
 
