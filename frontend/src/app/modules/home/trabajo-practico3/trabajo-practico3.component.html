@@ -1,0 +1,65 @@
+<mat-accordion *ngFor="let fb of element[0].CABECERA"> 
+
+    <mat-expansion-panel  [expanded]="true">
+  
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ fb.MPA_NM_PAIS }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+  
+  
+        <mat-expansion-panel [expanded]="true" *ngFor="let fib of element[0].DETALLE">
+  
+          <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ fib.MG1_NM_GEO_1 }}
+              </mat-panel-title>
+          </mat-expansion-panel-header>
+  
+  
+          <table class="table table-sm table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Fecha de Inicio</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Responsable</th> 
+                <th scope="col">Área</th> 
+              </tr>
+            </thead>
+  
+            <tbody>
+  
+              <tr *ngFor="let fibdet of element[0].DETALLE_DET">
+  
+                <td>
+                  <button mat-raised-button>
+                    {{ fibdet.EV_SECUE }}
+                  </button>
+                </td>
+  
+                <td> {{ fibdet.MTE_NM_ENTIDAD }} </td>
+                <td> {{ fibdet.EVI_DT_START }} </td>
+                <td> {{ fibdet.MES_NM_ESTADO }} </td>
+                <td> {{ fibdet.MTI_NM_INTERVENTOR }} </td>
+                <td> {{ fibdet.MTA_NM_AREA }} </td>
+  
+  
+              </tr> 
+  
+            </tbody>
+          </table>
+  
+  
+  
+        </mat-expansion-panel>
+  
+    </mat-expansion-panel>
+  
+  
+  </mat-accordion>
+    
+  
+  
