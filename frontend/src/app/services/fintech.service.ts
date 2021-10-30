@@ -25,4 +25,12 @@ export class FintechService {
   logIn(body: any){
     return this.http.post(`${environment.API_URI}/fintech/login/`, body)
   }
+
+
+
+  getAccount(IDUser: string){
+    return this.http.get(`${environment.API_URI}/fintech/${environment.getAccount}/${IDUser}`)
+  }
+
+
 }

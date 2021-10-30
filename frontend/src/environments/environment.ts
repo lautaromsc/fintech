@@ -8,7 +8,8 @@ export const environment = {
   API_URI:'http://localhost:3001/api',
 
   getFintech:'/fintech',
-
+  getAccount:'/account',
+  
 
 };
 
