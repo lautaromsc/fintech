@@ -127,7 +127,8 @@ class FintechController {
                     message: 'monton en cuenta insuficiente', 
                 })
             }
-            //TODO: restarle monto a la cuenta.
+            const newAmount = account[0].amount - amount;
+            await pool.query('UPDATE accounts SET amount = $1 WHERE cvu = $2', [newAmount, fromCvu]);
             const response = await pool.query('INSERT INTO transfers (from_cvu, to_cvu, amount) values ($1, $2, $3)', [fromCvu, toCvu, amount]);
             console.log(response)
             return res.json({
@@ -176,7 +177,7 @@ class FintechController {
             
             const cvu =`00000277${Math.floor(1000000000000 + Math.random() * 9000000000000)}`;
             console.log(cvu);
-            const words = ["hola", "zorro", "kilogramo","viento", "diente", "cabello", "fuego", "lluvia", "manteca", "salchicha", "milanesa", "papu", "maestro", "choclo", "pierna"]
+            const words = ["hola", "zorro", "kilogramo","viento", "diente", "cabello", "fuego", "lluvia", "manteca", "salchicha", "milanesa", "papu", "maestro", "choclo", "pierna", "sanguche", "mandrina", "mesa", "termo", "pensamiento", "vaso", "celular", "lapicera", "auricular", "monitor", "dragon", "trifuerza", "hombre", "mujer", "araña"]
             const alias = `${words[Math.floor(Math.random()*words.length)]}.${words[Math.floor(Math.random()*words.length)]}.${words[Math.floor(Math.random()*words.length)]}`;
             console.log(alias);
             const response = await pool.query('INSERT INTO transfers (cvu, alias, amount) values ($1, $2, $3)', [cvu, alias, '10000']);
