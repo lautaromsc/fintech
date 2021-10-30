@@ -6,6 +6,8 @@ import { HomeComponent } from './home.component';
 import { TrabajoPractico3Component } from './trabajo-practico3/trabajo-practico3.component';
 import { TrabajoPractico2Component } from './trabajo-practico2/trabajo-practico2.component';
 import { TrabajoPractico1Component } from './trabajo-practico1/trabajo-practico1.component';
+import { TrabajoPractico4Component } from './trabajo-practico4/trabajo-practico4.component';
+
 import { SideNavComponent } from './side-nav/side-nav.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -44,6 +46,7 @@ let materials = [
     TrabajoPractico1Component,
     TrabajoPractico2Component,
     TrabajoPractico3Component,
+     TrabajoPractico4Component,
   ],
   imports: [
     CommonModule,

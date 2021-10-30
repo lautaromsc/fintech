@@ -1,0 +1,99 @@
+
+<div *ngIf="error" class="alert alert-danger animated fadeIn">
+    Estoy Muerto {{ mensajeError}}
+</div>
+  
+  
+  <div clas="container" style="padding-top: 1rem; padding-left: 10rem; padding-right: 10rem">
+  
+
+
+ 
+    <mat-card>
+
+        <mat-card-content>
+  
+            <mat-expansion-panel hideToggle #expansion  [disabled]="true" [expanded]="true" >
+                <mat-expansion-panel-header>
+                  
+                    <mat-panel-title style="color:black" >
+                         <h1>  Cuenta N° 0303456  </h1>
+                    </mat-panel-title>
+
+                    <mat-panel-title style="color:black" >
+                         <h1>  Dinero disponible: $0.00  </h1>
+                    </mat-panel-title>
+  
+
+                </mat-expansion-panel-header>
+  
+                <!--
+                <div>
+                    <h2> {{ form.get('HEXA').value  }}  </h2> 
+                </div>
+                -->
+
+                  <mat-panel-title style="color:black" >
+                         <h3> Transferir  dinero  a:</h3>
+                    </mat-panel-title>
+                <form  [formGroup]="form" class="example-form">
+                    <table class="example-full-width"> 
+                                                <tr> 
+
+                        <tr> 
+                          <td class="cellFormFilter">     
+                              <mat-form-field appearance="fill"  class="example-full-width">
+                                       <mat-label>Ingrese numero de CVU</mat-label>
+                                <input matInput formControlName="HEXA" >   
+                            </mat-form-field>
+
+                            <div *ngIf="form.get('HEXA').errors?.pattern" style="padding: 0px !important;">
+                                <p class="text-danger" style="padding: 0px !important;"> Número Hexadecimal inválido</p>
+                           </div> 
+
+                          </td>
+                        </tr>
+                      
+
+       
+                    </table>
+                </form> 
+                
+                <div style="text-align: center;">
+                    <button mat-raised-button color="primary"  [disabled]="form.invalid" (click)="getBitMap()"> 
+                        Transferir
+                    </button>
+    
+                </div>
+
+
+            </mat-expansion-panel>
+  
+        </mat-card-content>
+
+    </mat-card>
+    
+
+
+
+
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
