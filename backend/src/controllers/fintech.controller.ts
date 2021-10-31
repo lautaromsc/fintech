@@ -136,7 +136,7 @@ class FintechController {
             console.log(accountTO);
             if(accountTO[0].amount < amount){
                 return res.json({
-                    message: 'Error en sumatorio de fondos', 
+                    message: 'Error en sumatorio de fondos o no existe cuenta? que onda aca zane!', 
                 })
             }            
             const newAmountTO = accountTO[0].amount + amount;
