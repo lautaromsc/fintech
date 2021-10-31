@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { first } from 'rxjs/operators';
 import { FintechService } from 'src/app/services/fintech.service';
 
-
 @Component({
-  selector: 'app-trabajo-practico4',
-  templateUrl: './trabajo-practico4.component.html',
-  styleUrls: ['./trabajo-practico4.component.scss']
+  selector: 'app-transferencia',
+  templateUrl: './transferencia.component.html',
+  styleUrls: ['./transferencia.component.scss']
 })
-export class TrabajoPractico4Component implements OnInit {
+export class TransferenciaComponent implements OnInit {
+
 
   public response: any;
   public mensajeError: string = '';
@@ -32,7 +33,8 @@ export class TrabajoPractico4Component implements OnInit {
 
   public get(): void{
     this._fintech.getAccount('1').subscribe(async(data: any) => {
-      this.response = data;
+      this.response = data; // response?.body.rows[0].alias
+      this.form.get('FROM_CBU').setValue(data.body.rows[0].cvu)
       this.showOk()
     },(err) => {
       console.log(err);
@@ -42,15 +44,33 @@ export class TrabajoPractico4Component implements OnInit {
   }
 
 
-  public transferToCbu(): void{
+  public transferToCbu(): void {
 
+    this._fintech.transfer(
+      this.form.get('FROM_CBU').value,
+      this.form.get('TO_CBU').value,
+      this.form.get('MONTO').value
+    )
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log(data)
+        },
+        error => {
+          console.log(error)
+      });
   }
+
+
+
+
 
 
   private initForm(): void{
     this.form = this._fb.group({
+      FROM_CBU: new FormControl({ value: '', disabled: false }),
       TO_CBU: new FormControl({ value: '', disabled: false }),
-      MONTO: new FormControl({ value: '', disabled: false }),
+      MONTO: new FormControl({ value: 0, disabled: false }),
     });
   }
 
@@ -60,7 +80,7 @@ export class TrabajoPractico4Component implements OnInit {
     return new Promise(async(resolve,reject) => {
         this.saveOk = true;
         setTimeout(()=>{   
-         console.log("  this.saveOk = false; ")                      
+         console.log("this.saveOk = false; ")                      
          this.saveOk = false;
           resolve(true)
        }, 2000);
@@ -71,19 +91,12 @@ export class TrabajoPractico4Component implements OnInit {
     return new Promise(async(resolve,reject) => {
         this.error = true;
         setTimeout(()=>{   
-         console.log("  this.saveOk = false; ")                      
+         console.log("this.saveOk = false; ")                      
          this.error = false;
           resolve(true)
        }, 2000);
     });
   }
   
-
-
-
-
-
-
-
 
 }

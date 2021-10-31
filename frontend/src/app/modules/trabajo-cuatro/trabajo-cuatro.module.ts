@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-import { TrabajoPractico3Component } from './trabajo-practico3/trabajo-practico3.component';
-import { TrabajoPractico2Component } from './trabajo-practico2/trabajo-practico2.component';
-import { TrabajoPractico1Component } from './trabajo-practico1/trabajo-practico1.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
+import { TrabajoCuatroRoutingModule } from './trabajo-cuatro-routing.module';
+import { TrabajoCuatroComponent } from './trabajo-cuatro.component';
+//import { SideNavComponent } from '../home/side-nav/side-nav.component';
+
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -21,6 +19,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+import { TransferenciaComponent } from './transferencia/transferencia.component';
+import { HistorialComponent } from './historial/historial.component';
+import { CuentasComponent } from './cuentas/cuentas.component';
 
 let materials = [
   MatToolbarModule,
@@ -34,22 +36,27 @@ let materials = [
   MatCheckboxModule,
   MatExpansionModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatTabsModule
 ]
+
+
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    SideNavComponent,
-    TrabajoPractico1Component,
-    TrabajoPractico2Component,
-    TrabajoPractico3Component
+    TrabajoCuatroComponent,
+    TransferenciaComponent,
+    HistorialComponent,
+    CuentasComponent,
+    //SideNavComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
+    TrabajoCuatroRoutingModule,
     ReactiveFormsModule,
     materials
   ]
+
+  
 })
-export class HomeModule { }
+export class TrabajoCuatroModule { }

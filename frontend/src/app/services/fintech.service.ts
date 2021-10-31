@@ -29,8 +29,15 @@ export class FintechService {
 
 
   getAccount(IDUser: string){
-    return this.http.get(`${environment.API_URI}/fintech/${environment.getAccount}/${IDUser}`)
+    return this.http.get(`${environment.API_URI}${environment.getAccount}${IDUser}`)
   }
+
+  transfer(fromCvu: string, toCvu: string, amount: string){
+    return this.http.post(`${environment.API_URI}${environment.postTransfer}`, { fromCvu, toCvu, amount })
+  }
+
+  
+
 
 
 }

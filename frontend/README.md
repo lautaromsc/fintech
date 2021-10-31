@@ -29,3 +29,10 @@ The login and password are stored in the NODE_USER* values you see when you call
 
 map the port your app runs on to an HTTP URL by running `nano /etc/nginx/sites-available/default` and adding another location. Us
 e the existing entry for the port 3000 "hello" app as a basis. Call `sudo systemctl restart nginx` to enable your new nginx config.
+
+
+
+
+## Angular commands
+
+`ng g module modules/reportes --route reportes --module app.module`

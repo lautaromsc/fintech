@@ -16,7 +16,7 @@ export class SideNavComponent  implements OnDestroy{
     {navitem:'Trabajo Práctico Número 1', navLink:'../home/tp1' },
     {navitem:'Trabajo Práctico Número 2', navLink:'../home/tp2' },  
     {navitem:'Trabajo Práctico Número 3', navLink:'../home/tp3' },
-        {navitem:'Trabajo Práctico Número 4', navLink:'../home/tp4' }  
+    {navitem:'Trabajo Práctico Número 4', navLink:'../cvu/tp4' }  
   ]
 
   private _mobileQueryListener: () => void;
