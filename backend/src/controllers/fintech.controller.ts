@@ -123,22 +123,26 @@ class FintechController {
             // ORIGEN
             const accountFrom = await pool.query('SELECT * FROM accounts where cvu = $1', [fromCvu]);
             console.log(accountFrom);
+            if(!accountFrom[0]){
+                return res.json({
+                    message: 'La cuenta de origen no existe.', 
+                }) 
+            }
             if(accountFrom[0].amount < amount){
                 return res.json({
-                    message: 'fondos insuficiente', 
+                    message: 'Saldo de cuenta origen insuficiente.', 
+                })
+            }
+            // DESTINO
+            const accountTO = await pool.query('SELECT * FROM accounts where cvu = $1', [toCvu]);
+            console.log(accountTO);
+            if(!accountTO[0]){
+                return res.json({
+                    message: 'La cuenta de destino no existe.', 
                 })
             }
             const newAmountFrom = accountFrom[0].amount - amount;
             await pool.query('UPDATE accounts SET amount = $1 WHERE cvu = $2', [newAmountFrom, fromCvu]);
-
-            // DESTINO
-            const accountTO = await pool.query('SELECT * FROM accounts where cvu = $1', [toCvu]);
-            console.log(accountTO);
-            if(accountTO[0].amount < amount){
-                return res.json({
-                    message: 'Error en sumatorio de fondos o no existe cuenta? que onda aca zane!', 
-                })
-            }            
             const newAmountTO = accountTO[0].amount + amount;
             await pool.query('UPDATE accounts SET amount = $1 WHERE cvu = $2', [newAmountTO, toCvu]);
 
