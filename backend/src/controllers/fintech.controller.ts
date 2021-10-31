@@ -120,7 +120,7 @@ class FintechController {
             console.log(fromCvu);
             console.log(toCvu);
             console.log(amount);
-            // ORIGEN
+
             const accountFrom = await pool.query('SELECT * FROM accounts where cvu = $1', [fromCvu]);
             console.log(accountFrom);
             if(!accountFrom[0]){
@@ -133,7 +133,7 @@ class FintechController {
                     message: 'Saldo de cuenta origen insuficiente.', 
                 })
             }
-            // DESTINO
+
             const accountTO = await pool.query('SELECT * FROM accounts where cvu = $1', [toCvu]);
             console.log(accountTO);
             if(!accountTO[0]){
@@ -146,7 +146,7 @@ class FintechController {
             const newAmountTO = accountTO[0].amount + amount;
             await pool.query('UPDATE accounts SET amount = $1 WHERE cvu = $2', [newAmountTO, toCvu]);
 
-            // REGISTRA MOVIMIENTO DE CUENTAS
+
             const response = await pool.query('INSERT INTO transfers (from_cvu, to_cvu, amount) values ($1, $2, $3)', [fromCvu, toCvu, amount]);
             console.log(response)
             return res.json({
