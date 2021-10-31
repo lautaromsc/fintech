@@ -21,6 +21,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TrabajoCuatroModule } from '../trabajo-cuatro/trabajo-cuatro.module';
+
 
 let materials = [
   MatToolbarModule,
@@ -49,7 +51,9 @@ let materials = [
     CommonModule,
     HomeRoutingModule,
     ReactiveFormsModule,
-    materials
+    materials,
+
+    //TrabajoCuatroModule
   ]
 })
 export class HomeModule { }

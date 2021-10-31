@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { TrabajoCuatroRoutingModule } from './trabajo-cuatro-routing.module';
 import { TrabajoCuatroComponent } from './trabajo-cuatro.component';
-//import { SideNavComponent } from '../home/side-nav/side-nav.component';
-
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,6 +20,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { TransferenciaComponent } from './transferencia/transferencia.component';
 import { HistorialComponent } from './historial/historial.component';
 import { CuentasComponent } from './cuentas/cuentas.component';
+
+
 
 let materials = [
   MatToolbarModule,
@@ -48,13 +47,18 @@ let materials = [
     TransferenciaComponent,
     HistorialComponent,
     CuentasComponent,
-    //SideNavComponent
-  ],
+    ],
   imports: [
     CommonModule,
     TrabajoCuatroRoutingModule,
     ReactiveFormsModule,
     materials
+  ],
+  exports: [
+    CommonModule,
+    TrabajoCuatroRoutingModule,
+    ReactiveFormsModule,
+    materials,
   ]
 
   

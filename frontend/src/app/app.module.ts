@@ -24,6 +24,7 @@ import { ServerError505Component } from './components/server-error505/server-err
 import { NotFound404Component } from './components/not-found404/not-found404.component';
 
 
+
 let materials = [
   MatToolbarModule,
   MatSlideToggleModule,
@@ -51,7 +52,7 @@ let materials = [
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
