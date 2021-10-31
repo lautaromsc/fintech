@@ -202,15 +202,17 @@ class FintechController {
             const words = ["hola", "zorro", "kilogramo","viento", "diente", "cabello", "fuego", "lluvia", "manteca", "salchicha", "milanesa", "papu", "maestro", "choclo", "pierna", "sanguche", "mandrina", "mesa", "termo", "pensamiento", "vaso", "celular", "lapicera", "auricular", "monitor", "dragon", "trifuerza", "hombre", "mujer", "araña"]
             const alias = `${words[Math.floor(Math.random()*words.length)]}.${words[Math.floor(Math.random()*words.length)]}.${words[Math.floor(Math.random()*words.length)]}`;
             console.log(alias);
-            const response = await pool.query('INSERT INTO transfers (cvu, alias, amount) values ($1, $2, $3)', [cvu, alias, '10000']);
-            console.log(response);
+            await pool.query('INSERT INTO accounts (cvu, alias, amount, userid) values ($1, $2, $3, $4)', [cvu, alias, '10000', userId]);
+            const response = await pool.query('SELECT * FROM accounts where cvu = $1', [cvu]); 
+            console.log(response.rows);
             return res.json({
                 message: 'accounts created', 
                 body: {
-                    ...response
+                    data: response.rows
                 }
             })
         } catch (error) {
+            console.log(error);
             return res.status(403).json({text: "unauthorized."})
         }
     }
@@ -224,7 +226,7 @@ class FintechController {
             return res.json({
                 message: 'accounts created', 
                 body: {
-                    ...response
+                    data: response.rows[0]
                 }
             })
         } catch (error) {
