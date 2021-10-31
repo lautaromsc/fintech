@@ -122,33 +122,35 @@ class FintechController {
             console.log(amount);
 
             const accountFrom = await pool.query('SELECT * FROM accounts where cvu = $1', [fromCvu]);
-            console.log(accountFrom);
-            if(!accountFrom[0]){
+            console.log(accountFrom.rows[0]);
+            if(!accountFrom.rows.length){
                 return res.json({
                     message: 'La cuenta de origen no existe.', 
                 }) 
             }
-            if(accountFrom[0].amount < amount){
+            if(Number(accountFrom.rows[0].amount) < Number(amount)){
                 return res.json({
                     message: 'Saldo de cuenta origen insuficiente.', 
                 })
             }
 
             const accountTO = await pool.query('SELECT * FROM accounts where cvu = $1', [toCvu]);
-            console.log(accountTO);
-            if(!accountTO[0]){
+            console.log(accountTO.rows[0]);
+            if(!accountTO.rows.length){
                 return res.json({
                     message: 'La cuenta de destino no existe.', 
                 })
             }
-            const newAmountFrom = accountFrom[0].amount - amount;
-            await pool.query('UPDATE accounts SET amount = $1 WHERE cvu = $2', [newAmountFrom, fromCvu]);
-            const newAmountTO = accountTO[0].amount + amount;
-            await pool.query('UPDATE accounts SET amount = $1 WHERE cvu = $2', [newAmountTO, toCvu]);
+            console.log('init update query accounts');
+            const newAmountFrom = Number(accountFrom.rows[0].amount) - Number(amount);
+            await pool.query('UPDATE accounts SET amount = $1 WHERE cvu = $2', [newAmountFrom.toString(), fromCvu]);
+            const newAmountTO = Number(accountTO.rows[0].amount) + Number(amount);
+            await pool.query('UPDATE accounts SET amount = $1 WHERE cvu = $2', [newAmountTO.toString(), toCvu]);
+            console.log('finish update query accounts');
 
-
+            console.log('init inser transfer');
             const response = await pool.query('INSERT INTO transfers (from_cvu, to_cvu, amount) values ($1, $2, $3)', [fromCvu, toCvu, amount]);
-            console.log(response)
+            console.log('finish inser transfer');
             return res.json({
                 message: 'Transfer successful', 
                 body: {
@@ -160,6 +162,7 @@ class FintechController {
                 }
             })
         } catch (error) {
+            console.log(error);
             return res.status(403).json({text: "unauthorized."})
         }
 
