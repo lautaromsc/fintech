@@ -172,18 +172,18 @@ class FintechController {
         try {
             let { cvu } = req.params;
             console.log(cvu);
-            const transfersSend = await pool.query('SELECT * FROM transfer where from_cvu = $1', [cvu]);
+            const transfersSend = await pool.query('SELECT * FROM transfers where from_cvu = $1', [cvu.toString()]);
             console.log(transfersSend);
-            const transfersReceived = await pool.query('SELECT * FROM transfer where to_cvu = $1', [cvu]);
+            const transfersReceived = await pool.query('SELECT * FROM transfers where to_cvu = $1', [cvu.toString()]);
             console.log(transfersReceived);
             return res.json({
                 message: 'Transfer successful', 
                 body: {
                     transfersSend: {
-                        ...transfersSend
+                        ...transfersSend.rows
                     },
                     transfersReceived: {
-                        ...transfersReceived
+                        ...transfersReceived.rows
                     }
                 }
             })
