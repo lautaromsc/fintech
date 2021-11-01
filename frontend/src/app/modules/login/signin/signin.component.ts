@@ -40,11 +40,14 @@ export class SigninComponent implements OnInit {
 
   public login = () => {
     this.error = false
-    this.AuthenticationService.login(this.form.username.value, md5(this.form.password.value) )
+    this.AuthenticationService.login(
+      this.form.username.value, 
+      md5(this.form.password.value) 
+    )
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['home/tp1']);
+          this.router.navigate(['home/tp4']);
         },
         error => {
           this.error = true;

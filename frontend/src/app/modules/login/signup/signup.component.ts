@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['home/tp1']);
+          this.router.navigate(['home/tp4']);
         },
         error => {
           this.error = error;

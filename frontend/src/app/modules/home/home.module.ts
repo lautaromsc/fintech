@@ -21,7 +21,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TrabajoCuatroModule } from '../trabajo-cuatro/trabajo-cuatro.module';
+import { TrabajoCuatroModule } from '../tp4/tp4.module';
 
 
 let materials = [

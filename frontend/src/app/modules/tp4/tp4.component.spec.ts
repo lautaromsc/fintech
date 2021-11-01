@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrabajoCuatroComponent } from './trabajo-cuatro.component';
+import { Tp4Component } from './tp4.component';
 
-describe('TrabajoCuatroComponent', () => {
-  let component: TrabajoCuatroComponent;
-  let fixture: ComponentFixture<TrabajoCuatroComponent>;
+describe('Tp4Component', () => {
+  let component: Tp4Component;
+  let fixture: ComponentFixture<Tp4Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrabajoCuatroComponent ]
+      declarations: [ Tp4Component ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TrabajoCuatroComponent);
+    fixture = TestBed.createComponent(Tp4Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
