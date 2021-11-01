@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.mat-row:hover {
+  background-color: rgba(160, 160, 160, 0.719);
+}
+
+.mat-card-title {
+  font-size: 13px;
+}
+
+.disabled-pointer {
+  pointer-events: none;
+}

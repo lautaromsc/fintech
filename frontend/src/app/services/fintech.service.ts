@@ -36,6 +36,10 @@ export class FintechService {
     return this.http.post(`${environment.API_URI}${environment.postTransfer}`, { fromCvu, toCvu, amount })
   }
 
+  getHistory(CVU: string){
+    return this.http.get(`${environment.API_URI}${environment.getTransfer}${CVU}`)
+  }
+
   
 
 

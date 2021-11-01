@@ -17,6 +17,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+
 import { TransferenciaComponent } from './transferencia/transferencia.component';
 import { HistorialComponent } from './historial/historial.component';
 import { CuentasComponent } from './cuentas/cuentas.component';
@@ -36,7 +39,9 @@ let materials = [
   MatExpansionModule,
   MatSidenavModule,
   MatListModule,
-  MatTabsModule
+  MatTabsModule,
+  MatPaginatorModule,
+  MatTableModule
 ]
 
 

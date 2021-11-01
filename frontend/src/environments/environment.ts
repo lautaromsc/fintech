@@ -11,6 +11,8 @@ export const environment = {
   getAccount:'/fintech/account/',
   postTransfer:'/fintech/transfer/',
 
+  getTransfer:'/fintech/transfer/',
+
 };
 
 /*
