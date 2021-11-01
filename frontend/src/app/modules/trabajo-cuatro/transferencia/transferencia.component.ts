@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { FintechService } from 'src/app/services/fintech.service';
 
@@ -8,11 +8,12 @@ import { FintechService } from 'src/app/services/fintech.service';
   templateUrl: './transferencia.component.html',
   styleUrls: ['./transferencia.component.scss']
 })
+
 export class TransferenciaComponent implements OnInit {
 
 
   public response: any;
-  public mensajeError: string = '';
+  public mensaje: string = '';
   public error: boolean;
   public saveOk: boolean;
   public form: FormGroup;
@@ -34,18 +35,17 @@ export class TransferenciaComponent implements OnInit {
   public get(): void{
     this._fintech.getAccount('1').subscribe(async(data: any) => {
       this.response = data; // response?.body.rows[0].alias
-      this.form.get('FROM_CBU').setValue(data.body.rows[0].cvu)
-      this.showOk()
+      this.form.get('FROM_CBU').setValue(data.body.data.cvu)
     },(err) => {
       console.log(err);
-      this.mensajeError += JSON.stringify(err);
+      this.mensaje += JSON.stringify(err);
       this.showErr();
     });
   }
 
 
   public transferToCbu(): void {
-
+    this.mensaje = '';
     this._fintech.transfer(
       this.form.get('FROM_CBU').value,
       this.form.get('TO_CBU').value,
@@ -53,8 +53,12 @@ export class TransferenciaComponent implements OnInit {
     )
       .pipe(first())
       .subscribe(
-        data => {
+        (data: any) => {
           console.log(data)
+          this.mensaje = data.message 
+          this.mensaje.includes('successful') ?  this.showOk() : this.showErr()
+          this.initForm()
+          this.get()
         },
         error => {
           console.log(error)
@@ -64,13 +68,11 @@ export class TransferenciaComponent implements OnInit {
 
 
 
-
-
   private initForm(): void{
     this.form = this._fb.group({
-      FROM_CBU: new FormControl({ value: '', disabled: false }),
-      TO_CBU: new FormControl({ value: '', disabled: false }),
-      MONTO: new FormControl({ value: 0, disabled: false }),
+      FROM_CBU: new FormControl({ value: '', disabled: false },Validators.required),
+      TO_CBU: new FormControl({ value: '', disabled: false },Validators.required),
+      MONTO: new FormControl({ value: '', disabled: false },Validators.required),
     });
   }
 
@@ -79,22 +81,20 @@ export class TransferenciaComponent implements OnInit {
   async showOk(){
     return new Promise(async(resolve,reject) => {
         this.saveOk = true;
-        setTimeout(()=>{   
-         console.log("this.saveOk = false; ")                      
+        setTimeout(()=>{                       
          this.saveOk = false;
           resolve(true)
-       }, 2000);
+       }, 10000);
     });
   }
 
   async showErr(){
     return new Promise(async(resolve,reject) => {
         this.error = true;
-        setTimeout(()=>{   
-         console.log("this.saveOk = false; ")                      
+        setTimeout(()=>{                        
          this.error = false;
           resolve(true)
-       }, 2000);
+       }, 10000);
     });
   }
   
