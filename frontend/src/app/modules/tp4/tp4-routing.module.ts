@@ -3,10 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { Tp4Component } from './tp4.component';
 
 
+
 const routes: Routes = [
-  { 
-    path: '', component: Tp4Component, //children: [{ path: 'tp4',component: TransferenciaComponent }]
-  }
+  { path: '', component: Tp4Component }
 ];
 
 

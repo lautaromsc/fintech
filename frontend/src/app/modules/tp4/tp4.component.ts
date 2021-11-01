@@ -13,4 +13,13 @@ export class Tp4Component implements OnInit {
     
   }
 
+  links = [ 
+    {tab:'Cuentas', link: 'cuentas', index:0}, 
+    {tab:'Historial', link: 'historial', index:1}, 
+    {tab:'Transferencias', link: 'transferencias', index:2}, 
+  ];
+
+  activeLink = this.links[0].tab;
+
+
 }

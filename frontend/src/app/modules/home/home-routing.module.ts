@@ -5,6 +5,9 @@ import { TrabajoPractico1Component } from './trabajo-practico1/trabajo-practico1
 import { TrabajoPractico2Component } from './trabajo-practico2/trabajo-practico2.component';
 import { TrabajoPractico3Component } from './trabajo-practico3/trabajo-practico3.component';
 import { Tp4Component } from '../tp4/tp4.component';
+import { CuentasComponent } from '../tp4/cuentas/cuentas.component';
+import { HistorialComponent } from '../tp4/historial/historial.component';
+import { TransferenciaComponent } from '../tp4/transferencia/transferencia.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,
@@ -12,7 +15,13 @@ const routes: Routes = [
       { path: 'tp1',component: TrabajoPractico1Component },
       { path: 'tp2',component: TrabajoPractico2Component },
       { path: 'tp3',component: TrabajoPractico3Component },
-      { path: 'tp4',component: Tp4Component },
+      { path: 'tp4',component: Tp4Component, 
+        children: [
+          { path: 'cuentas',component: CuentasComponent },
+          { path: 'historial',component: HistorialComponent },
+          { path: 'transferencias',component: TransferenciaComponent }
+        ] 
+      },
     ]
   },
   

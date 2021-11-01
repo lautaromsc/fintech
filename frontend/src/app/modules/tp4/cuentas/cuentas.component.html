@@ -1,1 +1,33 @@
-<p>cuentas works!</p>
+<div> <!-- class="container-fluid d-flex justify-content-center" -->
+
+
+    <div class="card-group">
+      <div class="col-sm-6" >
+        <mat-card class="maestro-card">
+          <mat-card-header>
+            <mat-card-title>
+              <p> Cuenta N°  {{ response?.body.data.id }} </p>
+              <p> Alias: {{ response?.body.data.alias }} </p>
+              <p> CVU: {{ response?.body.data.cvu }}   </p>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p> Dinero disponible: $ {{ response?.body.data.amount }}  </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+  
+      <div class="col-sm-6">
+        <mat-card class="maestro-card">
+          <mat-card-header>
+            <mat-card-title></mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p> Cuenta 2  </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+  
+
+
+</div>
