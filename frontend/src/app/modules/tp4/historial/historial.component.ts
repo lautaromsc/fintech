@@ -19,6 +19,7 @@ export class HistorialComponent implements OnInit {
   public displayedColumns: string[] = ['id','from_cvu','to_cvu','amount'];
 
   public dataSource = new MatTableDataSource(ELEMENT_DATA);
+  public dataSource2 = new MatTableDataSource(ELEMENT_DATA);
   @ViewChild(MatSort) sort: MatSort;
 
   ngAfterViewInit() {
@@ -34,7 +35,8 @@ export class HistorialComponent implements OnInit {
   }
 
   private get(): void {
-    this._crud.getHistory('000002774751642633288').subscribe((data: any) => {
+    const cbu = '000002774751642633288';
+    this._crud.getHistory(cbu).subscribe((data: any) => {
       console.log(data);
       try {
         const objArray: Transfer[] = [];
@@ -43,6 +45,14 @@ export class HistorialComponent implements OnInit {
         });
         this.dataSource = new MatTableDataSource(objArray);
         this.dataSource.sort = this.sort;
+
+        const objArray2: Transfer[] = [];
+        Object.values(data.body.transfersReceived).forEach((item: Transfer)  => {
+          objArray2.push(item)
+        });
+        this.dataSource2 = new MatTableDataSource(objArray2);
+        this.dataSource2.sort = this.sort;
+
       } catch {
         this.error = true
       }
