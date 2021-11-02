@@ -22,7 +22,7 @@ import { MatTableModule } from '@angular/material/table';
 
 import { TransferenciaComponent } from './transferencia/transferencia.component';
 import { HistorialComponent } from './historial/historial.component';
-import { CuentasComponent } from './cuentas/cuentas.component';
+
 
 
 
@@ -51,7 +51,6 @@ let materials = [
     Tp4Component,
     TransferenciaComponent,
     HistorialComponent,
-    CuentasComponent,
     ],
   imports: [
     CommonModule,

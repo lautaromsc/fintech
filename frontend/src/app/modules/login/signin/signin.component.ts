@@ -47,7 +47,7 @@ export class SigninComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['home/tp4']);
+          this.router.navigate(['home/tp4/transferencias']);
         },
         error => {
           this.error = true;

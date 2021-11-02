@@ -35,7 +35,7 @@ export class HistorialComponent implements OnInit {
   }
 
   private get(): void {
-    const cbu = '000002774751642633288';
+    const cbu = '000002776662519466502';
     this._crud.getHistory(cbu).subscribe((data: any) => {
       console.log(data);
       try {
