@@ -48,6 +48,7 @@ export class SigninComponent implements OnInit {
       .subscribe(
         data => {
           this.router.navigate(['home/tp4/transferencias']);
+          localStorage.setItem('userID', data.body)
         },
         error => {
           this.error = true;

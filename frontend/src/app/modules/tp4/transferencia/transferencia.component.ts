@@ -33,9 +33,11 @@ export class TransferenciaComponent implements OnInit {
 
 
   public get(): void{
-    this._fintech.getAccount('1').subscribe(async(data: any) => {
+    let userID = localStorage.getItem('userID')
+    this._fintech.getAccount(userID).subscribe(async(data: any) => {
       this.response = data; // response?.body.rows[0].alias
       this.form.get('FROM_CBU').setValue(data.body.data.cvu)
+      localStorage.setItem('userCVU', data.body.data.cvu)
     },(err) => {
       console.log(err);
       this.mensaje += JSON.stringify(err);
@@ -47,8 +49,8 @@ export class TransferenciaComponent implements OnInit {
   public transferToCbu(): void {
     this.mensaje = '';
     this._fintech.transfer(
-      this.form.get('FROM_CBU').value,
-      this.form.get('TO_CBU').value,
+      this.form.get('FROM_CBU').value.toString(),
+      this.form.get('TO_CBU').value.toString(),
       this.form.get('MONTO').value
     )
       .pipe(first())

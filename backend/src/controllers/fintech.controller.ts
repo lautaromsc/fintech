@@ -91,7 +91,10 @@ class FintechController {
             const exist = await pool.query('SELECT * FROM users where name = $1 and pwd = $2', [name, pwd]);
             if (exist.rowCount > 0) {
                 const token = jwt.sign({name, pwd}, 'test')
-            return res.status(200).json(token);
+            return res.status(200).json({ 
+                message:  token,
+                body:  exist.rows[0].ID
+            });
             } else {
                 return res.status(404).json({text: "Usuario y/o contraseña incorrecta"})
             }

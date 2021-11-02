@@ -35,7 +35,7 @@ export class HistorialComponent implements OnInit {
   }
 
   private get(): void {
-    const cbu = '000002776662519466502';
+    const cbu = localStorage.getItem('userCVU')
     this._crud.getHistory(cbu).subscribe((data: any) => {
       console.log(data);
       try {
