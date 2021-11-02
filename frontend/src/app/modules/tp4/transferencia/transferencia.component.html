@@ -66,77 +66,38 @@
 
 
   
-<div clas="container" style="padding-top: 1rem; padding-left: 10rem; padding-right: 10rem">
+<div clas="container d-flex justify-content-center" style="padding-top: 1rem; padding-left: 8rem; padding-right: 6rem;">
   
     <mat-card>
 
         <mat-card-content>
-  
-            <mat-expansion-panel hideToggle #expansion  [disabled]="true" [expanded]="true" >
 
-                <mat-expansion-panel-header>
-                    <!--
-                    <mat-panel-title style="color:black" >
-                    <h1>  Cuenta N°  {{ response?.body.data.id }}  </h1>
-                    </mat-panel-title>
+            <h1> Transferir  dinero  a:</h1>
+        
+            <form [formGroup]="form" class="example-form">
+               
+                    <mat-form-field appearance="fill" class="example-full-width"  >
+                        <mat-label>Ingrese numero de CVU</mat-label>
+                        <input matInput type="number" formControlName="TO_CBU" >   
+                    </mat-form-field>
 
-                    <mat-panel-title style="color:black" >
-                    <h1>  Alias: {{ response?.body.data.alias }}  </h1>
-                    </mat-panel-title>
+                    <mat-form-field appearance="fill" class="example-full-width" >
+                        <mat-label>Monto a transferir</mat-label>
+                        <input matInput type="number" formControlName="MONTO" >   
+                    </mat-form-field>
 
-                    <mat-panel-title style="color:black" >
-                    <h1>  CVU: {{ response?.body.data.cvu }}  </h1>
-                    </mat-panel-title>
-
-                    <mat-panel-title style="color:black" >
-                    <h1>  Dinero disponible: $ {{ response?.body.data.amount }}  </h1>
-                    </mat-panel-title>
-                    -->
-
-                </mat-expansion-panel-header>
-
-
-                <mat-panel-title style="color:black" >
-                    <h3> Transferir  dinero  a:</h3>
-                </mat-panel-title>
-
-
-                <form [formGroup]="form" class="example-form">
-                    <table class="example-full-width"> 
-                                    
-                        <tr> 
-
-                          <td class="cellFormFilter">     
-
-                            <mat-form-field appearance="fill"  class="example-full-width">
-                                <mat-label>Ingrese numero de CVU</mat-label>
-                                <input matInput formControlName="TO_CBU" >   
-                            </mat-form-field>
-
-                            <mat-form-field appearance="fill"  class="example-full-width">
-                                <mat-label>Monto a transferir</mat-label>
-                                <input matInput formControlName="MONTO" >   
-                            </mat-form-field>
-
-                            <div *ngIf="form.get('TO_CBU').errors?.pattern" style="padding: 0px !important;">
-                                <p class="text-danger" style="padding: 0px !important;"> Número Hexadecimal inválido</p>
-                            </div> 
-                          </td>
-
-                        </tr>
-                    
-                    </table>
-                </form> 
+                    <div *ngIf="form.get('TO_CBU').errors?.pattern" style="padding: 0px !important;">
+                        <p class="text-danger" style="padding: 0px !important;"> Número Hexadecimal inválido</p>
+                    </div> 
                 
-                <div style="text-align: center;">
-                    <button mat-raised-button color="primary"  [disabled]="form.invalid" (click)="transferToCbu()"> 
-                        Transferir
-                    </button>
-    
-                </div>
+            </form> 
+            
+            <div style="text-align: center;">
+                <button mat-raised-button color="primary"  [disabled]="form.invalid" (click)="transferToCbu()"> 
+                    Transferir
+                </button>
+            </div>
 
-            </mat-expansion-panel>
-  
         </mat-card-content>
 
     </mat-card>
