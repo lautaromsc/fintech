@@ -22,6 +22,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TrabajoCuatroModule } from '../tp4/tp4.module';
+import { enviosComponent } from './envios/envios.component';
+import { shipiFiComponent } from './shipiFi/shipiFi.component';
 
 
 let materials = [
@@ -45,7 +47,9 @@ let materials = [
     SideNavComponent,
     TrabajoPractico1Component,
     TrabajoPractico2Component,
-    TrabajoPractico3Component
+    TrabajoPractico3Component,
+    enviosComponent,
+    shipiFiComponent
   ],
   imports: [
     CommonModule,

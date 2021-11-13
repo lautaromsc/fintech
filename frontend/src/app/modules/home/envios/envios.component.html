@@ -1,0 +1,84 @@
+
+<div *ngIf="error" class="alert alert-danger animated fadeIn">
+    Estoy Muerto {{ mensajeError}}
+</div>
+  
+  
+  <div clas="container" style="padding-top: 1rem; padding-left: 10rem; padding-right: 10rem">
+  
+
+
+ 
+    <mat-card>
+
+        <mat-card-content>
+  
+            <mat-expansion-panel hideToggle #expansion  [disabled]="true" [expanded]="true" >
+                <mat-expansion-panel-header>
+                  
+                    <mat-panel-title style="color:black" >
+                         <h1> ShipiFi envios  </h1>
+                    </mat-panel-title>
+  
+
+                </mat-expansion-panel-header>
+  
+                <!--
+                <div>
+                    <h2> {{ form.get('HEXA').value  }}  </h2> 
+                </div>
+                -->
+
+
+   
+
+                <div style="text-align: left; ">
+                    <h3 style="text-align: left; margin-bottom: 0px" > Obtener codigo de seguimiento  </h3>
+                    <button mat-raised-button color="primary" (click)="informarPago()" > 
+                        Enviar informe de pago 
+                    </button>
+
+                  
+    
+                </div>
+ 
+                <div style="text-align: left; margin-bottom: 0px">
+                  <h3 style="text-align: left; margin-bottom: 0px; margin-top: 10px;"> Pago de envio mediante CVU  </h3>
+                
+      <button  mat-raised-button color="primary" (click)="irAShipiFi('shipiFi')">
+   <span>     Ir a shipiFi</span>
+</button>
+
+                </div>
+
+
+            </mat-expansion-panel>
+  
+        </mat-card-content>
+
+    </mat-card>
+    
+
+
+
+
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

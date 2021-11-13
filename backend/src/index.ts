@@ -7,6 +7,7 @@ import indexRoutes from './routes/index-routes';
 import usersRoutes from './routes/users-routes';
 import litigiosRoutes from './routes/litigios.routes';
 import fintechRoutes from './routes/fintech.routes';
+import shipiFiRoutes from './routes/shipiFi.routes'
 
 
 class Server {
@@ -34,6 +35,7 @@ class Server {
         this.app.use('/api/users', usersRoutes)
         this.app.use('/api/litigios', litigiosRoutes)
         this.app.use('/api/fintech', fintechRoutes)
+        this.app.use('/api/shipiFi', shipiFiRoutes)
     }
 
     start(): void {
