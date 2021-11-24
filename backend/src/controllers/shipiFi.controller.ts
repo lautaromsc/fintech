@@ -11,15 +11,14 @@ class ShipiFiController {
     public async get(req: Request, res: Response): Promise<Response> {
 
         try {
-            let uuid = require('uuid');
+            const seguimiento = req.params.seguimiento;
+            console.log(seguimiento);
+
+            const exist = await pool.query('SELECT * FROM pagos_informados where seguimiento = $1', [seguimiento]);
+            console.log(exist);
 
             let response = {
-                status: true,
-                errorCode: '00',
-                msg: "Operacion correcta",
-                data: {},
-                transaccionId: uuid.v1(),
-                timeStampnew: new Date().toLocaleDateString()
+                ...exist
             }
 
             return res.status(200).json(response)
@@ -36,21 +35,20 @@ class ShipiFiController {
         try {
             console.log("LLEGOOOOOO informarPago")
             console.log(req.body)
-            //const { name, email, pwd } = req.body;
+            const { email } = req.body;
+            const paid = true
+            const response = await pool.query('INSERT INTO pagos_informados (email, pago) values ($1, $2, $3)', [email, paid]);
+            console.log(response)
 
-            //console.log(name)
-            //console.log(email)
-            //console.log(pwd)
-            //const response = await pool.query('INSERT INTO users (name, email, pwd) values ($1, $2, $3)', [name, email, pwd]);
-            //return res.json({
-            //    message: 'User register successful',
-            //    body: {
-            //        user: {
-            //            name,
-            //            email
-            //        }
-            //    }
-            //})
+            return res.json({
+                message: 'Informed payment',
+                body: {
+                    payment: {
+                        email,
+                        paid
+                    }
+                }
+            })
         } catch (error) {
             console.log(error)
             return res.status(500).json("Internal Server Error")
@@ -74,7 +72,7 @@ class ShipiFiController {
             //        body: exist.rows[0].ID
             //    });
             //} else {
-            //    return res.status(404).json({ text: "Usuario y/o contraseña incorrecta" })
+            //    return res.status(404).json({ text: "Usuario y/o contraseï¿½a incorrecta" })
             //}
         } catch (error) {
             console.log(error)
