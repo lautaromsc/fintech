@@ -1,9 +1,9 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
 
-    <mat-toolbar color="primary" class="example-toolbar">
+    <mat-toolbar color="primary" class="example-toolbar" style="background: #f5f5f5">
       <mat-toolbar-row>
         <button mat-icon-button (click)="snav.toggle()">
-          <mat-icon>menu</mat-icon>
+          <mat-icon svgIcon="menu" ></mat-icon>
         </button>
 
         <!--
@@ -11,47 +11,34 @@
           <img src="./assets/blackhat.svg" routerLink="/">
         </a>
         -->
-
         
-        <h1 class="example-app-name"> UNIVERSIDAD DE PALERMO</h1>
-
-
+        <h1 class="example-app-name"> SHIPPIFY </h1>
         <div class="flex-stretch"></div>
 
-        
-        <button mat-button  routerLink="/home/tp1">
-          TP1
-        </button>
+        <button mat-raised-button> Envios </button>
+        <button mat-raised-button> Tracking </button>
+        <button mat-raised-button> Billetera </button>
 
-        <button mat-button  routerLink="/home/tp2">
-          TP2
-        </button>
-
-        <button mat-button  routerLink="/home/tp4/transferencias">
-          TP4
-        </button>
-
-        <button mat-button  routerLink="/login/signin">
-          Salir
-        </button>
-
-        <mat-icon class="mr-8">brightness_5</mat-icon>
+        <mat-icon svgIcon="brightness" ></mat-icon>
         <mat-slide-toggle [formControl]="toggleControl" class="mr-8"> </mat-slide-toggle>
-        <mat-icon>bedtime</mat-icon>
+        <mat-icon svgIcon="bedtime" ></mat-icon>
 
       </mat-toolbar-row>
+
       <mat-toolbar-row>
-        <span>FINTECH Y MERCADO TRANSACCIONAL</span>
+        <span style="color: black;"> Shipping Platform Provider </span>
         <span class="example-spacer"></span>
-        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+
+        <mat-icon svgIcon="favorite" ></mat-icon>
+        <mat-icon svgIcon="trash" ></mat-icon>
+       
       </mat-toolbar-row>
 
 
     </mat-toolbar>
   
-    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
 
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
 
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list>
@@ -59,14 +46,13 @@
         </mat-nav-list>
       </mat-sidenav>
   
-
-
       <mat-sidenav-content>
          <router-outlet> </router-outlet>
       </mat-sidenav-content>
 
-
     </mat-sidenav-container>
+
+
 
   </div>
   
