@@ -1,0 +1,104 @@
+<div *ngIf="error" class="alert alert-danger animated fadeIn"> <h1> {{ mensaje }} </h1> </div>
+<div *ngIf="saveOk" class="alert alert-success animated fadeIn"> <h1> {{ mensaje }} </h1> </div>
+
+<!-- {{ response | json }} {{  form.value | json }} -->
+
+<div class="container-fluid d-flex justify-content-center">
+
+    <div class="card-group">
+
+        <div class="col-sm-3" >
+            <mat-card class="maestro-card">
+            <mat-card-header>
+                <mat-card-title>
+                    <div class="d-flex justify-content-around">
+                        <p> Cuenta N°: {{ response?.body.data.id }} </p>
+                    </div>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content> </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-sm-3" >
+            <mat-card class="maestro-card">
+            <mat-card-header>
+                <mat-card-title>
+                    <div class="d-flex justify-content-around">
+                        <p> Dinero disponible: $ {{ response?.body.data.amount }}  </p>
+                    </div>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content> </mat-card-content>
+            </mat-card>
+        </div>
+
+
+        <div class="col-sm-3" >
+            <mat-card class="maestro-card">
+                <mat-card-header>
+                <mat-card-title>
+                    <div class="d-flex justify-content-around">
+                        <p> Alias: {{ response?.body.data.alias }} </p>
+                    </div>
+                </mat-card-title>
+                </mat-card-header>
+                <mat-card-content> </mat-card-content>
+            </mat-card>
+        </div>
+
+
+        <div class="col-sm-3" >  
+            <mat-card class="maestro-card">
+                <mat-card-header>
+                <mat-card-title>
+                    <div class="d-flex justify-content-around">
+                        <p> CVU: {{ response?.body.data.cvu }} </p>
+                    </div>
+                </mat-card-title>
+                </mat-card-header>
+                <mat-card-content></mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+
+  
+<div clas="container d-flex justify-content-center" style="padding-top: 1rem; padding-left: 8rem; padding-right: 6rem;">
+  
+    <mat-card>
+
+        <mat-card-content>
+
+            <h1> Transferir  dinero  a:</h1>
+        
+            <form [formGroup]="form" class="example-form">
+               
+                    <mat-form-field appearance="fill" class="example-full-width"  >
+                        <mat-label>Numero de CVU</mat-label>
+                        <input matInput  formControlName="TO_CBU" >   
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="example-full-width" >
+                        <mat-label>Importe</mat-label>
+                        <input matInput type="number" formControlName="MONTO" >   
+                    </mat-form-field>
+
+                    <div *ngIf="form.get('MONTO').errors?.pattern" style="padding: 0px !important;">
+                        <p class="text-danger" style="padding: 0px !important;"> Número invalido</p>
+                    </div> 
+                
+            </form> 
+            
+            <div style="text-align: center;">
+                <button mat-raised-button color="primary"  [disabled]="form.invalid" (click)="transferToCbu()"> 
+                    Transferir
+                </button>
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+  
+</div>

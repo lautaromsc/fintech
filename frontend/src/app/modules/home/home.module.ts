@@ -22,8 +22,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TrabajoCuatroModule } from '../tp4/tp4.module';
-import { enviosComponent } from './envios/envios.component';
-import { shipiFiComponent } from './shipiFi/shipiFi.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { ShippingComponent } from './shipping/shipping.component';
+import { TrackingComponent } from './tracking/tracking.component';
 
 
 let materials = [
@@ -48,15 +49,15 @@ let materials = [
     TrabajoPractico1Component,
     TrabajoPractico2Component,
     TrabajoPractico3Component,
-    enviosComponent,
-    shipiFiComponent
+    WalletComponent,
+    ShippingComponent,
+    TrackingComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     ReactiveFormsModule,
     materials,
-
     //TrabajoCuatroModule
   ]
 })

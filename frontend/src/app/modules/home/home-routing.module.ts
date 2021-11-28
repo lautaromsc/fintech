@@ -7,8 +7,9 @@ import { TrabajoPractico3Component } from './trabajo-practico3/trabajo-practico3
 import { Tp4Component } from '../tp4/tp4.component';
 import { HistorialComponent } from '../tp4/historial/historial.component';
 import { TransferenciaComponent } from '../tp4/transferencia/transferencia.component';
-import { enviosComponent } from './envios/envios.component';
-import { shipiFiComponent } from './shipiFi/shipiFi.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { TrackingComponent } from './tracking/tracking.component';
+import { ShippingComponent } from './shipping/shipping.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,
@@ -22,8 +23,12 @@ const routes: Routes = [
           { path: 'transferencias',component: TransferenciaComponent }
         ] 
       },
-            { path: 'envios',component: enviosComponent },
-                        { path: 'shipiFi',component: shipiFiComponent },
+
+      
+      { path: 'wallet',component: WalletComponent },
+      { path: 'tracking',component: TrackingComponent },
+      { path: 'shipping',component: ShippingComponent },
+
 
     ]
   },

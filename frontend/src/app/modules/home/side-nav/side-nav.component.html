@@ -6,18 +6,17 @@
           <mat-icon svgIcon="menu" ></mat-icon>
         </button>
 
-        <!--
-        <a style="cursor: pointer;">
-          <img src="./assets/blackhat.svg" routerLink="/">
-        </a>
-        -->
-        
         <h1 class="example-app-name"> SHIPPIFY </h1>
+
+        <a style="cursor: pointer;">
+          <img style="width: 70px;" src="./assets/truck.png" routerLink="/">
+        </a>
+
         <div class="flex-stretch"></div>
 
-        <button mat-raised-button> Envios </button>
-        <button mat-raised-button> Tracking </button>
-        <button mat-raised-button> Billetera </button>
+        <button mat-raised-button routerLink="shipping"> Envios </button>
+        <button mat-raised-button routerLink="tracking"> Tracking </button>
+        <button mat-raised-button routerLink="wallet"> Billetera </button>
 
         <mat-icon svgIcon="brightness" ></mat-icon>
         <mat-slide-toggle [formControl]="toggleControl" class="mr-8"> </mat-slide-toggle>

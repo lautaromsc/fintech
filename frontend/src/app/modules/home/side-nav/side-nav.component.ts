@@ -17,12 +17,9 @@ export class SideNavComponent  implements OnDestroy{
     //{navitem:'Trabajo Práctico Número 2', navLink:'../home/tp2' },  
     //{navitem:'Trabajo Práctico Número 3', navLink:'../home/tp3' },
     //{navitem:'Trabajo Práctico Número 4', navLink:'../home/tp4/transferencias' },
-    {navitem:'Envios', navLink:'../home/envios' },  
-    {navitem:'Tracking', navLink:'../home/envios' },  
-    {navitem:'Billetera', navLink:'../home/envios' },  
-
-    
-    {navitem:'ShipiFi', navLink:'../home/shipiFi' },  
+    {navitem:'Envios', navLink:'../home/shipping' },  
+    {navitem:'Tracking', navLink:'../home/tracking' },  
+    {navitem:'Billetera', navLink:'../home/wallet' },  
   ]
 
   private _mobileQueryListener: () => void;
