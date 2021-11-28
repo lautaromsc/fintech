@@ -1,1 +1,47 @@
-<p>shipping works!</p>
+<div class="d-flex justify-content-center">
+
+    <mat-card>
+
+        <form  [formGroup]="form" class="example-form"> 
+            
+            <mat-form-field appearance="fill"  class="example-full-width">
+                <mat-label>Email Adress</mat-label>
+                <input matInput formControlName="email" >   
+            </mat-form-field>
+
+            <mat-form-field appearance="fill"  class="example-full-width">
+                <mat-label>Estado del pago</mat-label>
+                <input matInput formControlName="payState" >   
+            </mat-form-field>
+
+            <mat-form-field appearance="fill"  class="example-full-width">
+                <mat-label>Estado del envio </mat-label>
+                <input matInput formControlName="shippingState" >   
+            </mat-form-field>
+
+            <mat-form-field appearance="fill"  class="example-full-width">
+                <mat-label>Amount</mat-label>
+                <input matInput formControlName="amount" >   
+            </mat-form-field>
+
+            <mat-form-field appearance="fill"  class="example-full-width">
+                <mat-label>Detalle del envio</mat-label>
+                <textarea matInput formControlName="shippingDetails" >  </textarea> 
+            </mat-form-field>
+
+        </form>
+
+    </mat-card>
+
+    <mat-card>
+        <ngx-qrcode
+            [width]=300 
+            [elementType]="elementType"
+            [errorCorrectionLevel]="correctionLevel"
+            [value]="value"
+            alt="Demo QR Code"
+            cssClass="bshadow">
+        </ngx-qrcode>
+    </mat-card>
+
+</div>

@@ -25,7 +25,7 @@ import { TrabajoCuatroModule } from '../tp4/tp4.module';
 import { WalletComponent } from './wallet/wallet.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { TrackingComponent } from './tracking/tracking.component';
-
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 let materials = [
   MatToolbarModule,
@@ -59,6 +59,7 @@ let materials = [
     ReactiveFormsModule,
     materials,
     //TrabajoCuatroModule
+    NgxQRCodeModule
   ]
 })
 export class HomeModule { }
