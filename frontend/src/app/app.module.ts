@@ -19,10 +19,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { InterceptorService } from './services/interceptor.service';
 import { ServerError505Component } from './components/server-error505/server-error505.component';
 import { NotFound404Component } from './components/not-found404/not-found404.component';
 
+import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
+import { InterceptorService } from './services/utils/interceptor.service';
+
+const config: SocketIoConfig = {url: 'http://localhost:3000', options: {}};
 
 
 let materials = [
@@ -53,6 +56,7 @@ let materials = [
     HttpClientModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
+    SocketIoModule.forRoot(config),
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

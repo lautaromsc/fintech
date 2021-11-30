@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { FintechService } from 'src/app/services/fintech.service';
+import { FintechService } from 'src/app/services/tps/fintech.service';
+
 
 @Component({
   selector: 'app-wallet',

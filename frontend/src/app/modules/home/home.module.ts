@@ -26,6 +26,11 @@ import { WalletComponent } from './wallet/wallet.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { BrowserModule } from '@angular/platform-browser';
+
+
+const config: SocketIoConfig = {url: 'http://localhost:3000', options: {}};
 
 let materials = [
   MatToolbarModule,
@@ -59,7 +64,8 @@ let materials = [
     ReactiveFormsModule,
     materials,
     //TrabajoCuatroModule
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    SocketIoModule.forRoot(config),
   ]
 })
 export class HomeModule { }

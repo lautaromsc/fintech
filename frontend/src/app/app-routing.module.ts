@@ -4,7 +4,7 @@ import { NotFound404Component } from './components/not-found404/not-found404.com
 
 
 const routes: Routes = [
- { path: '', redirectTo: '/login/signin', pathMatch: 'full'},
+ { path: '', redirectTo: '/home/shipping', pathMatch: 'full'},
  { path: 'login', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule) },
  { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
  { path: "**", component: NotFound404Component }
