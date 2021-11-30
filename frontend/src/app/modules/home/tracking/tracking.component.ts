@@ -27,8 +27,6 @@ export class TrackingComponent implements OnInit {
         this.renderer2.appendChild(this.asGeoCoder.nativeElement,
           geocoder.onAdd(map)
         );
-
-
         console.log('*** TODO BIEN *****');
       })
       .catch((err) => {
@@ -66,7 +64,7 @@ export class TrackingComponent implements OnInit {
   }
 
   testMarker(): void {
-    this.mapCustomService.addMarkerCustom([-8.628139488926513, 41.159082702543635]);
+    this.mapCustomService.addMarkerCustom([-58.6033381, -34.6158037]);
   }
 }
 

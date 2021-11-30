@@ -1,12 +1,16 @@
-<div class="wrapper">
-    <button (click)="drawRoute()" class="btn-route">Dibujar RUTA</button>
-    <button (click)="testMarker()" class="btn-route">Marcador</button>
-  </div>
+
   
   <div class="wrapper">
     <div class="box-inputs">
-      <div>
-        <div id="geocoder" #asGeoCoder class="geocoder"></div>
+
+
+      <div style="display: flex;">
+
+        <div id="geocoder" #asGeoCoder class="geocoder"> </div>
+
+        <button mat-raised-button (click)="drawRoute()"> Dibujar ruta</button>
+        <button mat-raised-button (click)="testMarker()"> Marcador</button>
+
       </div>
   
   
