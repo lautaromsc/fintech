@@ -80,9 +80,30 @@ class ShipiFiController {
         }
     }
 
+    public async tracking(req: Request, res: Response): Promise<Response> {
+
+        try {
+
+            let response = {
+                emailAdress: 'zanettilucas93@gmail.com',
+                estadoPago: 'Pago completado',
+                estadoEnvio: 'En camino!',
+                amount: '$10.000',
+                direccionEnvio: 'Av. Corrientes 5225 1A, CABA',
+                direccionEntrega: '-34.59930049636929, -58.438964691727605',
+                direccionSalida: '-34.47675875860508, -58.7486227774623'
+            }
+
+            return res.status(200).json(response)
+
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json("Internal Server Error")
+        }
+
+    }
+
 }
-
-
 export const shipiFiController = new ShipiFiController();
 
 
