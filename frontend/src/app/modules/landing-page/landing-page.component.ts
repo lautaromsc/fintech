@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
+  page = '/assets/web/index.html'
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { TrabajoPractico3Component } from './trabajo-practico3/trabajo-practico3.component';
-import { TrabajoPractico2Component } from './trabajo-practico2/trabajo-practico2.component';
-import { TrabajoPractico1Component } from './trabajo-practico1/trabajo-practico1.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -47,9 +44,6 @@ let materials = [
   declarations: [
     HomeComponent,
     SideNavComponent,
-    TrabajoPractico1Component,
-    TrabajoPractico2Component,
-    TrabajoPractico3Component,
     WalletComponent,
     ShippingComponent,
     TrackingComponent
