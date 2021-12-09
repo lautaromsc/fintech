@@ -13,6 +13,12 @@ export const environment = {
 
   getTransfer:'/fintech/transfer/',
 
+
+
+  mapPk: 'pk.eyJ1IjoibGF1dGFyb21zYyIsImEiOiJja3dsaHNsdW8yMXoyMzBxYjZlZnRoZnF0In0.yvH5dz023Q1XfBaibUG_fw'
+
+
+
 };
 
 /*

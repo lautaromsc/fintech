@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FintechService } from 'src/app/services/fintech.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { iTransfer, Transfer } from 'src/app/models/transfer';
 import { MatSort } from '@angular/material/sort';
+import { FintechService } from 'src/app/services/tps/fintech.service';
 
 const ELEMENT_DATA: iTransfer[] = [];
 

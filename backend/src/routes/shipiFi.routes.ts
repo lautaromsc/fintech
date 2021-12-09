@@ -15,6 +15,7 @@ class ShipiFiRoutes {
         this.router.get('/', shipiFiController.get);
         this.router.get('/obtenerEstadoPago', shipiFiController.obtenerEstadoPago);
         this.router.post('/informarPago', shipiFiController.informarPago);
+        this.router.get('/tracking', shipiFiController.tracking);
 
     }
 } 
