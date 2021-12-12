@@ -20,6 +20,7 @@ import { MatListModule } from '@angular/material/list';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { InicioComponent } from './inicio/inicio.component';
 
 let materials = [
   MatToolbarModule,
@@ -39,7 +40,7 @@ let materials = [
 
 
 @NgModule({
-  declarations: [LoginComponent, SigninComponent, SignupComponent],
+  declarations: [LoginComponent, SigninComponent, SignupComponent, InicioComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,

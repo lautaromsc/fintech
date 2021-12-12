@@ -29,7 +29,12 @@
             "styles": [
              
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles2.scss",
+              "src/bootstrap.scss",
+              "src/swiper.scss",
+              "src/magnific-popup.scss",
+              "src/fontawesome-all.scss"
             ],
             "scripts": [],
             "vendorChunk": true,
@@ -101,7 +106,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles2.scss",
+              "src/bootstrap.scss",
+              "src/swiper.scss",
+              "src/magnific-popup.scss",
+              "src/fontawesome-all.scss"
             ],
             "scripts": []
           }
