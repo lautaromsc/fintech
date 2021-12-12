@@ -5,22 +5,27 @@
 
   <mat-toolbar color="primary" class="example-toolbar" >
     <mat-toolbar-row>
+
+      <!--
       <button mat-icon-button (click)="snav.toggle()">
         <mat-icon svgIcon="menu" ></mat-icon>
       </button>
-      <a style="cursor: pointer;">
-        <img style="width: 70px;" src="./assets/web/images/shipping.png" routerLink="/">
+      -->
+
+
+      <a style="cursor: pointer; padding: 1rem; margin: 1rem;" (click)="snav.toggle()" >
+        <img style="width: 70px;" src="./assets/web/images/shipping.png" >
       </a>
       
-      <h1 class="example-app-name"> Shippify </h1>
 
+      <h1 style="font: 700 2.5rem/3.125rem Open Sans, sans-serif; color: black" >Shippify </h1>
 
 
       <div class="flex-stretch"></div>
 
-      <button mat-raised-button routerLink="shipping"> Envios </button>
-      <button mat-raised-button routerLink="tracking"> Tracking </button>
-      <button mat-raised-button routerLink="wallet"> Billetera </button>
+      <button mat-raised-button color="primary" routerLink="shipping"> Envios </button>
+      <button mat-raised-button color="primary" routerLink="tracking"> Tracking </button>
+      <button mat-raised-button color="primary" routerLink="wallet"> Billetera </button>
 
       <mat-icon svgIcon="brightness" ></mat-icon>
       <mat-slide-toggle [formControl]="toggleControl" class="mr-8"> </mat-slide-toggle>
@@ -29,21 +34,15 @@
     </mat-toolbar-row>
 
     <mat-toolbar-row>
-      <span style="color: black;"> Shipping Platform Provider </span>
+      <span style="font: 700 1.5rem/2.125rem Open Sans, sans-serif; color: black"> Shipping Platform Provider </span>
 
       <span class="example-spacer"></span>
 
-      <mat-form-field appearance="fill" style="font-size: 12px;">
-        <mat-label style="color: black;">Search by tracking ID</mat-label>
-        <input matInput style="color: black;">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      </mat-form-field>
       <!--
       <mat-icon svgIcon="favorite" ></mat-icon>
       <mat-icon svgIcon="trash" ></mat-icon>
       -->
 
-     
     </mat-toolbar-row>
 
 
