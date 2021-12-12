@@ -24,6 +24,7 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 let materials = [
@@ -48,7 +49,8 @@ let materials = [
     WalletComponent,
     ShippingComponent,
     TrackingComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

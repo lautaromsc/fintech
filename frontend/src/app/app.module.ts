@@ -25,6 +25,7 @@ import { NotFound404Component } from './components/not-found404/not-found404.com
 import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
 import { InterceptorService } from './services/utils/interceptor.service';
 
+
 const config: SocketIoConfig = {url: 'http://localhost:3000', options: {}};
 
 
@@ -46,7 +47,7 @@ let materials = [
   declarations: [
     AppComponent,
     ServerError505Component,
-    NotFound404Component
+    NotFound404Component,
   ],
   imports: [
     BrowserModule,

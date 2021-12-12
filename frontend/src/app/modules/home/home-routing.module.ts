@@ -8,6 +8,7 @@ import { TransferenciaComponent } from '../tp4/transferencia/transferencia.compo
 import { WalletComponent } from './wallet/wallet.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,
@@ -23,7 +24,7 @@ const routes: Routes = [
       { path: 'wallet',component: WalletComponent },
       { path: 'tracking',component: TrackingComponent },
       { path: 'shipping',component: ShippingComponent },
-
+      { path: 'navbar',component: NavbarComponent },
 
     ]
   },
