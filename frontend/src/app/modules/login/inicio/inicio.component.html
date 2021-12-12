@@ -12,7 +12,7 @@
             <a class="navbar-brand logo-image" href="index.html">
                 <img src="../../../../assets/web/images/shipping.png" alt="alternative" style="height: 4.75rem;">
             </a> 
-            <h1>Shippify </h1>
+            <h1 style="font: 700 2.5rem/3.125rem Open Sans, sans-serif">Shippify </h1>
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -23,16 +23,17 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.html#header">HOME <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" routerLink="/landing-page" href="index.html#header" >HOME <span class="sr-only">(current)</span></a>
                     </li>
+
+                    <!--
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="index.html#features">CARACTERÍSTICAS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="index.html#details">DETALLES</a>
                     </li>
-
-                    <!-- Dropdown Menu -->          
+       
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle page-scroll" href="index.html#video" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">VIDEO</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -43,11 +44,12 @@
                             <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">POLÍTICA DE PRIVACIDAD</span></a>
                         </div>
                     </li>
-                    <!-- end of dropdown menu -->
 
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="index.html#pricing">EMPRESAS</a>
                     </li>
+                    -->
+
                 </ul>
                 <span class="nav-item">
                     <a class="btn-outline-sm" href="log-in.html">INICIAR SESIÓN</a>
@@ -67,19 +69,19 @@
                    <p>¿No tienes contraseña? Entonces por favor <a class="white" href="sign-up.html">Registrese</a></p> 
                     <!-- Sign Up Form -->
                     <div class="form-container">
-                        <form id="logInForm" data-toggle="validator" data-focus="false">
+                        <form id="logInForm" [formGroup]="loginForm"  (ngSubmit)="login()" data-toggle="validator" data-focus="false">
                             <div class="form-group">
-                                <input type="email" class="form-control-input" id="lemail" required>
+                                <input type="email" class="form-control-input" id="lemail" formControlName="username" required>
                                 <label class="label-control" for="lemail">Email</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="lpassword" required>
+                                <input type="text" class="form-control-input" id="lpassword" formControlName="password" required>
                                 <label class="label-control" for="lpassword">Password</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control-submit-button">INICIAR SESIÓN</button>
+                                <button class="form-control-submit-button">INICIAR SESIÓN</button>
                             </div>
                             <div class="form-message">
                                 <div id="lmsgSubmit" class="h3 text-center hidden"></div>
