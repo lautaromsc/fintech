@@ -41,7 +41,9 @@ export class FintechService {
   }
 
   
-
+  getShipping(){
+    return this.http.get(`${environment.API_URI}${environment.getShipping}`)
+  }
 
 
 }

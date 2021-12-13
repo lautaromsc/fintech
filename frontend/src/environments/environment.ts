@@ -15,9 +15,9 @@ export const environment = {
 
 
 
-  mapPk: 'pk.eyJ1IjoibGF1dGFyb21zYyIsImEiOiJja3dsaHNsdW8yMXoyMzBxYjZlZnRoZnF0In0.yvH5dz023Q1XfBaibUG_fw'
+  mapPk: 'pk.eyJ1IjoibGF1dGFyb21zYyIsImEiOiJja3dsaHNsdW8yMXoyMzBxYjZlZnRoZnF0In0.yvH5dz023Q1XfBaibUG_fw',
 
-
+  getShipping:'/shippify/tracking/'
 
 };
 

@@ -5,7 +5,7 @@ import { hexaToIso8583 } from '../services/iso8583';
 const jwt = require('jsonwebtoken');
 
 
-class ShipiFiController {
+class ShippifyController {
 
 
     public async get(req: Request, res: Response): Promise<Response> {
@@ -85,11 +85,11 @@ class ShipiFiController {
         try {
 
             let response = {
-                emailAdress: 'zanettilucas93@gmail.com',
+                emailAdress: 'user.shippify@gmail.com',
                 estadoPago: 'Pago completado',
                 estadoEnvio: 'En camino!',
                 amount: '$10.000',
-                direccionEnvio: 'Av. Corrientes 5225 1A, CABA',
+                direccionEnvio: '1346 Rivadavia, General Pacheco, B1617',
                 direccionEntrega: '-34.59930049636929, -58.438964691727605',
                 direccionSalida: '-34.47675875860508, -58.7486227774623'
             }
@@ -104,6 +104,6 @@ class ShipiFiController {
     }
 
 }
-export const shipiFiController = new ShipiFiController();
+export const shippifyController = new ShippifyController();
 
 

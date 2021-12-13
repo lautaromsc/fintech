@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { Socket } from 'ngx-socket-io';
 import { MapCustomService } from 'src/app/services/mapbox/map-custom.service';
+import { FintechService } from 'src/app/services/tps/fintech.service';
 
 @Component({
   selector: 'app-shipping',
@@ -24,39 +25,45 @@ export class ShippingComponent implements OnInit {
     public  _fb: FormBuilder,
     private mapCustomService: MapCustomService, 
     private renderer2: Renderer2,
-    private socket: Socket
+    private socket: Socket,
+    private _fintech: FintechService,
   ) {
     this.initForm()
    }
 
   ngOnInit(): void {
 
-    this.mapCustomService.buildMap()
-    .then(({geocoder, map}) => {
-      // this.asGeoCoder
-      this.renderer2.appendChild(this.asGeoCoder.nativeElement,
-        geocoder.onAdd(map)
-      );
-      console.log('*** TODO BIEN *****');
-    })
-    .catch((err) => {
-      console.log('******* ERROR ******', err);
+    this.mapCustomService.buildMap().then(({geocoder, map}) => {
+        this.renderer2.appendChild(this.asGeoCoder.nativeElement,geocoder.onAdd(map));
+        console.log('All is OK');
+      }).catch((err) => {
+        console.log('Error', err);
+      });
+
+    this.mapCustomService.cbAddress.subscribe((getPoint) => {
+      if (this.modeInput === 'start') {
+        this.wayPoints.start = getPoint;
+      }
+      if (this.modeInput === 'end') {
+        this.wayPoints.end = getPoint;
+      }
     });
 
-  this.mapCustomService.cbAddress.subscribe((getPoint) => {
-    if (this.modeInput === 'start') {
-      this.wayPoints.start = getPoint;
-    }
-    if (this.modeInput === 'end') {
-      this.wayPoints.end = getPoint;
-    }
-  });
-
-  this.socket.fromEvent('position')
-    .subscribe(({coords}) => {
+    this.socket.fromEvent('position').subscribe(({coords}) => {
       console.log('******* DESDE SERVER ****', coords);
       this.mapCustomService.addMarkerCustom(coords);
     })
+
+
+    this._fintech.getShipping().subscribe((data: any) => {
+      this.form.get('email').setValue(data.emailAdress);
+      this.form.get('payState').setValue(data.estadoPago);
+      this.form.get('shippingState').setValue(data.estadoEnvio);
+      this.form.get('amount').setValue(data.amount);
+      this.form.get('adress').setValue(data.direccionEnvio);
+      this.form.get('shippingDetails').setValue(data.emailAdress);
+    })
+
   }
 
 
