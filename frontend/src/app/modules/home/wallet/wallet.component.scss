@@ -1,7 +1,7 @@
 
 
 .example-full-width {
-    width: 48%;
+    //width: 48%;
     margin-left: 8px;
 }
 
@@ -11,7 +11,14 @@
 
 .maestro-card {
     margin-top: 2rem;
-    height: 6rem;
-    width: 20rem;
+    height: 7rem;
+    width: 30rem;
     margin-left: 2rem;
+}
+
+.mat-raised-button {
+    font-size: 19px;
+    height: 4rem;
+    margin-left: 8px;
+    padding-top: 0px;
 }

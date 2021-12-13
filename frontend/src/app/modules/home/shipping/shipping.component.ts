@@ -13,7 +13,7 @@ export class ShippingComponent implements OnInit {
 
   public elementType = NgxQrcodeElementTypes.URL;
   public correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  public value = 'https://www.techiediaries.com/';
+  public value = 'https://www.shippify.finance//';
   public form: FormGroup;
 
   @ViewChild('asGeoCoder') asGeoCoder: ElementRef;

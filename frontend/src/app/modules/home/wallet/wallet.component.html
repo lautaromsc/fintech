@@ -3,16 +3,20 @@
 
 <!-- {{ response | json }} {{  form.value | json }} -->
 
-<div class="container-fluid d-flex justify-content-center">
+<div class="d-flex justify-content-center">    
 
-    <div class="card-group">
 
-        <div class="col-sm-3" >
+
+<div> 
+
+
+
+        <div class="col" >
             <mat-card class="maestro-card">
             <mat-card-header>
                 <mat-card-title>
                     <div class="d-flex justify-content-around">
-                        <p> Cuenta N°: {{ response?.body.data.id }} </p>
+                        <h1> Cuenta N°: {{ response?.body.data.id }} </h1>
                     </div>
                 </mat-card-title>
             </mat-card-header>
@@ -20,12 +24,12 @@
             </mat-card>
         </div>
 
-        <div class="col-sm-3" >
+        <div class="col" >
             <mat-card class="maestro-card">
             <mat-card-header>
                 <mat-card-title>
                     <div class="d-flex justify-content-around">
-                        <p> Dinero disponible: $ {{ response?.body.data.amount }}  </p>
+                        <h1> Dinero disponible: $ {{ response?.body.data.amount }}  </h1>
                     </div>
                 </mat-card-title>
             </mat-card-header>
@@ -34,12 +38,12 @@
         </div>
 
 
-        <div class="col-sm-3" >
+        <div class="col" >
             <mat-card class="maestro-card">
                 <mat-card-header>
                 <mat-card-title>
                     <div class="d-flex justify-content-around">
-                        <p> Alias: {{ response?.body.data.alias }} </p>
+                        <h1> Alias: {{ response?.body.data.alias }}  </h1>
                     </div>
                 </mat-card-title>
                 </mat-card-header>
@@ -48,62 +52,110 @@
         </div>
 
 
-        <div class="col-sm-3" >  
+        <div class="col" >  
             <mat-card class="maestro-card">
                 <mat-card-header>
                 <mat-card-title>
                     <div class="d-flex justify-content-around">
-                        <p> CVU: {{ response?.body.data.cvu }} </p>
+                        <h1> CVU: {{ response?.body.data.cvu }} </h1>
                     </div>
                 </mat-card-title>
                 </mat-card-header>
                 <mat-card-content></mat-card-content>
             </mat-card>
         </div>
-    </div>
+
 </div>
 
 
-  
-<div clas="container d-flex justify-content-center" style="padding-top: 1rem; padding-left: 8rem; padding-right: 6rem; height: 600px;">
-  
-    <mat-card>
 
-        <mat-card-content>
 
-            <h1> Transferir  dinero  a:</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<div clas="container-fluid" style="padding-top: 1rem; padding-left: 8rem; padding-right: 6rem;">
+  
+    <mat-card style="width: 50rem;">
+
+        <mat-card>
+
+            <h1> Transferir  Dinero</h1>
         
             <form [formGroup]="form" class="example-form">
-               
-                    <mat-form-field appearance="fill" class="example-full-width"  >
-                        <mat-label>Numero de CVU</mat-label>
-                        <input matInput  formControlName="TO_CBU" >   
-                    </mat-form-field>
+            
+                <div style="display: flex;"> 
 
-                    <mat-form-field appearance="fill" class="example-full-width" >
-                        <mat-label>Importe</mat-label>
-                        <input matInput type="number" formControlName="MONTO" >   
-                    </mat-form-field>
+          
 
-                    <div *ngIf="form.get('MONTO').errors?.pattern" style="padding: 0px !important;">
-                        <p class="text-danger" style="padding: 0px !important;"> Número invalido</p>
-                    </div> 
+                <mat-form-field appearance="fill" class="example-full-width"  >
+                    <mat-label>Numero de CVU</mat-label>
+                    <input matInput  formControlName="TO_CBU" >   
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="example-full-width" >
+                    <mat-label>Importe</mat-label>
+                    <input matInput type="number" formControlName="MONTO" >   
+                </mat-form-field>
+
+                <div style="margin-top: 6px;">
+                    <button mat-raised-button color="accent"  (click)="transferToCbu()" [disabled]="form.invalid" > 
+                        Transferir
+                    </button>
+                </div>
+
                 
+                </div>
+
+                
+                <div *ngIf="form.get('MONTO').errors?.pattern" style="padding: 0px !important;">
+                    <p class="text-danger" style="padding: 0px !important;"> Número invalido</p>
+                </div> 
+            
             </form> 
             
-            <div style="text-align: center;">
-                <button mat-raised-button color="primary"  [disabled]="form.invalid" (click)="transferToCbu()"> 
-                    Transferir
-                </button>
-            </div>
+        </mat-card>
 
-        </mat-card-content>
+
+
+        <mat-card>
+            <h1> Recibir Dinero</h1>
+            <ngx-qrcode
+                [width]=300 
+                [elementType]="elementType"
+                [errorCorrectionLevel]="correctionLevel"
+                [value]="value"
+                alt="Demo QR Code"
+                cssClass="bshadow">
+            </ngx-qrcode>
+        </mat-card>
+
+
+
+
+
 
     </mat-card>
   
 </div>
 
 
+</div>
 
 
 

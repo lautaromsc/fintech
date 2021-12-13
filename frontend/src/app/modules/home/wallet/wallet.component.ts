@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { first } from 'rxjs/operators';
 import { FintechService } from 'src/app/services/tps/fintech.service';
 
@@ -11,7 +12,9 @@ import { FintechService } from 'src/app/services/tps/fintech.service';
 })
 export class WalletComponent implements OnInit {
 
-
+  public elementType = NgxQrcodeElementTypes.URL;
+  public correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+  public value = 'https://www.shippify.finance/'
 
   public response: any;
   public mensaje: string = '';
@@ -28,7 +31,7 @@ export class WalletComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.get()
+    //this.get()
   }
 
 

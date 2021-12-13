@@ -14,3 +14,24 @@
     box-shadow: 0 12.5px 10px rgba(0, 0, 0, 0.035),
     0 100px 80px rgba(0, 0, 0, 0.07);
   }
+
+  .mat-form-field{
+      font-size: 22px;
+  }
+
+
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+  }
+
+  h1{
+    font: 700 1.5rem/2.125rem Open Sans, sans-serif;
+  }

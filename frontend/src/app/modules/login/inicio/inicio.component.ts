@@ -5,6 +5,7 @@ import { first } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 import md5 from 'md5'
+import {  NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-inicio',
@@ -23,7 +24,8 @@ export class InicioComponent implements OnInit {
     private formBuilder: FormBuilder,
     private AuthenticationService: AuthenticationService,
     private router: Router,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _spinner: NgxSpinnerService
   ) { }
 
 
@@ -34,6 +36,21 @@ export class InicioComponent implements OnInit {
       username: [''],
       password: ['']
     })
+
+
+    if ( localStorage.getItem('userID').length > 0 ) {
+
+      this._spinner.show()
+
+      setTimeout(()=>{                       
+        this._spinner.hide()
+        this.router.navigate(['home/shipping']);
+      }, 1000);
+
+  
+    }
+
+
   }
   
   get form() { return this.loginForm.controls; }
@@ -48,7 +65,7 @@ export class InicioComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['home/tp4/transferencias']);
+          this.router.navigate(['home/shipping']);
           localStorage.setItem('userID', data.body)
         },
         error => {
