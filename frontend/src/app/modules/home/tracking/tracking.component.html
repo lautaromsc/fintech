@@ -1,33 +1,6 @@
 
   
   <div class="wrapper">
-    <div class="box-inputs">
-
-
-      <div style="display: flex;">
-
-        <div id="geocoder" #asGeoCoder class="geocoder"> </div>
-
-        <button mat-raised-button (click)="drawRoute()"> Dibujar ruta</button>
-        <button mat-raised-button (click)="testMarker()"> Marcador</button>
-
-      </div>
-  
-  
-      <div (click)="changeMode('start')" [ngClass]="{'active-way':modeInput ==='start'}">
-        <div class="mock-label">Inicio</div>
-        <div class="mock-input">{{wayPoints?.start?.place_name}}</div>
-      </div>
-  
-      <div (click)="changeMode('end')" [ngClass]="{'active-way':modeInput ==='end'}">
-        <div class="mock-label">Final</div>
-        <div class="mock-input">{{wayPoints?.end?.place_name}}</div>
-      </div>
-  
-    </div>
-  </div>
-  
-  <div class="wrapper">
   
     <div id="map" #asMap class="map-container"></div>
   

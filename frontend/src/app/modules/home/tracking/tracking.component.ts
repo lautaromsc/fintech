@@ -20,20 +20,19 @@ export class TrackingComponent implements OnInit {
   
   }
 
-  ngOnInit(): void {
-    this.mapCustomService.buildMap()
-      .then(({geocoder, map}) => {
+  async ngOnInit() {
+
+    this.mapCustomService.buildMap().then(({geocoder, map}) => {
         // this.asGeoCoder
-        this.renderer2.appendChild(this.asGeoCoder.nativeElement,
-          geocoder.onAdd(map)
-        );
-        console.log('*** TODO BIEN *****');
-      })
-      .catch((err) => {
-        console.log('******* ERROR ******', err);
-      });
+        console.log("eee")
+        //this.renderer2.appendChild(this.asGeoCoder.nativeElement, geocoder.onAdd(map) );
+        console.log('All is OK');
+    }).catch((err) => {
+        console.log('Error ', err);
+    });
 
     this.mapCustomService.cbAddress.subscribe((getPoint) => {
+      console.log("holii")
       if (this.modeInput === 'start') {
         this.wayPoints.start = getPoint;
       }
@@ -42,19 +41,23 @@ export class TrackingComponent implements OnInit {
       }
     });
 
-    this.socket.fromEvent('position')
-      .subscribe(({coords}) => {
-        console.log('******* DESDE SERVER ****', coords);
-        this.mapCustomService.addMarkerCustom(coords);
-      })
+    this.socket.fromEvent('position').subscribe( async ( {coords} ) => {  
+      console.log('Server Desde ', coords);
+      this.mapCustomService.addMarkerCustom(coords)
+    })
+
+    setTimeout(()=>{                       
+      this.drawRoute()
+    }, 1000);
+
   }
 
   drawRoute(): void {
+
     console.log('***** PUNTOS de ORIGEN y DESTINO', this.wayPoints)
-    const coords = [
-      this.wayPoints.start.center,
-      this.wayPoints.end.center
-    ];
+    /* const coords = [ this.wayPoints.start.center, this.wayPoints.end.center ];*/
+
+    const coords = [ [-58.58333, -34.41667], [-58.620629, -34.469964] ];
 
     this.mapCustomService.loadCoords(coords);
   }
