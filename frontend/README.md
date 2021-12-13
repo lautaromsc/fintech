@@ -10,6 +10,7 @@ run `pm2 save2`
 run `pm2 start "index.js" --name backend`
 run `pm2 save2`
 
+run `nano /etc/nginx/sites-available/default`
 run `sudo systemctl restart nginx`  to enable your new nginx config.</li>
 run `pm2 save` to schedule your code to run at launch.</li>
 
@@ -53,3 +54,37 @@ pw : `up2021Fintech`
 lautaromsc@gmail.com
 ## Dropplet
 pw : `up2021Fintech`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0|frontend | ✔ Browser application bundle generation complete.
+0|frontend |
+0|frontend | Warning: Unable to locate stylesheet: /var/www/fintech/frontend/https:/api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css
+0|frontend |
+0|frontend | Warning: Unable to locate stylesheet: /var/www/fintech/frontend/https:/api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css
+0|frontend |
+0|frontend | Warning: 1 rules skipped due to selector errors:
+0|frontend |   .custom-file-input:lang(en) ~ .custom-file-label -> unmatched pseudo-class :lang
