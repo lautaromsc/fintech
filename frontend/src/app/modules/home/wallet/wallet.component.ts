@@ -31,7 +31,7 @@ export class WalletComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.get()
+    this.get()
   }
 
 
