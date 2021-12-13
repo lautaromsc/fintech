@@ -36,3 +36,9 @@ e the existing entry for the port 3000 "hello" app as a basis. Call `sudo system
 ## Angular commands
 
 `ng g module modules/reportes --route reportes --module app.module`
+
+
+# Digital Ocean 
+lemscfi@gmail.com
+## Dropplet
+pw : `up2021Fintech`
