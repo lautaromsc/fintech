@@ -1,6 +1,8 @@
 ## Commands
 
-run `ssh ssh root@137.184.80.14`/ ssh ssh root@137.184.80.14
+run `ssh ssh root@143.198.174.152`/ ssh ssh root@143.198.174.152
+
+
 
 run `pm2 start "ng serve --prod --host 0.0.0.0" --name frontend`
 run `pm2 save2`
@@ -13,6 +15,9 @@ run `pm2 save` to schedule your code to run at launch.</li>
 
 run `sudo ufw status`  view firewall setting and make any changes you need. By default, only SSH/SFTP (port 22), HTTP (port 80),, , HTTPS (port 443) and NodejsServer (port 3001) are open
 run `sudo ufw disable` disable this firewall by calling
+run `sudo ufw allow PORT` where port is your por ID `sudo ufw allow 4200`
+
+
 
 
 pgAdmin web: lautaromsc/123456
@@ -39,6 +44,12 @@ e the existing entry for the port 3000 "hello" app as a basis. Call `sudo system
 
 
 # Digital Ocean 
+## Cuenta Nro 1
 lemscfi@gmail.com
+## Dropplet
+pw : `up2021Fintech`
+
+## Cuenta Nro 2
+lautaromsc@gmail.com
 ## Dropplet
 pw : `up2021Fintech`
