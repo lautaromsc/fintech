@@ -5,11 +5,11 @@ const server = require('http').Server(app);
 
 app.use(cors());
 
-const PORT = 3000;
+const PORT = 3002;
 
 const io = require('socket.io')(server, {
     cors: {
-        origins: ['http://localhost:4201']
+        origins: ['http://localhost:4200']
     }
 })
 

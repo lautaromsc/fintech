@@ -26,7 +26,7 @@ import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
 import { InterceptorService } from './services/utils/interceptor.service';
 
 
-const config: SocketIoConfig = {url: 'http://localhost:3000', options: {}};
+const config: SocketIoConfig = {url: 'http://localhost:3002', options: {}};
 
 
 let materials = [
