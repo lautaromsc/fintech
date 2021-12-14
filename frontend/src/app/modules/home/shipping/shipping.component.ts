@@ -1,9 +1,11 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { Socket } from 'ngx-socket-io';
 import { MapCustomService } from 'src/app/services/mapbox/map-custom.service';
 import { FintechService } from 'src/app/services/tps/fintech.service';
+import { ShippingDialogComponent } from '../shipping-dialog/shipping-dialog.component';
 
 @Component({
   selector: 'app-shipping',
@@ -27,6 +29,7 @@ export class ShippingComponent implements OnInit {
     private renderer2: Renderer2,
     private socket: Socket,
     private _fintech: FintechService,
+    private _dialog: MatDialog,
   ) {
     this.initForm()
    }
@@ -54,7 +57,11 @@ export class ShippingComponent implements OnInit {
       this.mapCustomService.addMarkerCustom(coords);
     })
 
+    this.get()
 
+  }
+
+  get(){
     this._fintech.getShipping().subscribe((data: any) => {
       this.form.get('email').setValue(data.emailAdress);
       this.form.get('payState').setValue(data.estadoPago);
@@ -65,7 +72,6 @@ export class ShippingComponent implements OnInit {
     })
 
   }
-
 
   private initForm(): void{
     this.form = this._fb.group({
@@ -105,8 +111,21 @@ export class ShippingComponent implements OnInit {
   }
 
 
+  public openDlg(row?): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = { };
+    let dialogRef = this._dialog.open(ShippingDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+      if (result) {
+        this.reloadForm();
+      }
+    });
+  }
 
-
+  private reloadForm(): void {
+    this.get();
+  }
 
 }
 
