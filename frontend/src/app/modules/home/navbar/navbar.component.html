@@ -26,8 +26,8 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault"> </div>
 
 
-        <button mat-raised-button routerLink="shipping"> Envios </button>
-        <button mat-raised-button routerLink="tracking"> Tracking </button>
+        <button mat-raised-button (click)="reload()"> Envios </button>
+        <button mat-raised-button (click)="reloadTracking()"> Tracking </button>
         <button mat-raised-button routerLink="wallet"> Wallet </button>
         <button mat-raised-button (click)="logout()"> Salir</button>
 

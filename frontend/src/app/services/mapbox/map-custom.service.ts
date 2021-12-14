@@ -1,14 +1,17 @@
-import {Injectable, EventEmitter} from '@angular/core';
+import {Injectable, EventEmitter, OnDestroy} from '@angular/core';
 import * as mapboxgl from 'mapbox-gl' ;
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import {HttpClient} from "@angular/common/http";
 import {Socket} from "ngx-socket-io";
 import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MapCustomService {
+export class MapCustomService implements OnDestroy {
+
+  private onDestroy$ = new Subject<boolean>();
   cbAddress: EventEmitter<any> = new EventEmitter<any>();
 
   mapbox = (mapboxgl as typeof mapboxgl);
@@ -20,8 +23,16 @@ export class MapCustomService {
   wayPoints: Array<any> = [];
   markerDriver: any = null;
 
-  constructor(private httpClient: HttpClient, private socket: Socket) {
+  constructor(
+    private httpClient: HttpClient, 
+    private socket: Socket
+  ) {
     this.mapbox.accessToken = environment.mapPk;
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroy$.next(true);
+    this.onDestroy$.complete();
   }
 
   buildMap(): Promise<any> {
