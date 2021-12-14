@@ -24,9 +24,10 @@ import { NotFound404Component } from './components/not-found404/not-found404.com
 
 import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
 import { InterceptorService } from './services/utils/interceptor.service';
+import { environment } from 'src/environments/environment';
 
 
-const config: SocketIoConfig = {url: 'http://localhost:3002', options: {}};
+const config: SocketIoConfig = { url: environment.apiUrlMapBox , options: {}};
 
 
 let materials = [
