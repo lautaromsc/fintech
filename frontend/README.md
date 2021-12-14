@@ -10,6 +10,9 @@ run `pm2 save2`
 run `pm2 start "index.js" --name backend`
 run `pm2 save2`
 
+run `pm2 start "server.js" --name server`
+run `pm2 save2`
+
 run `nano /etc/nginx/sites-available/default`
 run `sudo systemctl restart nginx`  to enable your new nginx config.</li>
 run `pm2 save` to schedule your code to run at launch.</li>
