@@ -91,7 +91,7 @@
   
 <div clas="container-fluid" style="padding-top: 1rem; padding-left: 8rem; padding-right: 6rem;">
   
-    <mat-card style="width: 50rem;">
+    <mat-card >
 
         <div>
 
@@ -132,9 +132,9 @@
 
 
         <mat-card>
-            <h1> Recibir Dinero</h1>
+            <h1 style="padding: 0px !important; margin: 0px !important;"> Recibir Dinero</h1>
             <ngx-qrcode
-                [width]=300 
+                [width]=200 
                 [elementType]="elementType"
                 [errorCorrectionLevel]="correctionLevel"
                 [value]="value"

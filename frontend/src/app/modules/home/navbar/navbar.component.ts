@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -22,5 +23,12 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  reload(){
+    window.location.href =  'http://localhost:4200/home/shipping'
+  }
+
+  reloadTracking(){
+    window.location.href =  'http://localhost:4200/home/tracking'
+  }
 
 }
