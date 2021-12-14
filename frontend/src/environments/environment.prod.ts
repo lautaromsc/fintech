@@ -3,6 +3,7 @@ export const environment = {
   apiUrl: 'http://143.198.174.152:3001',
   API_URI:'http://143.198.174.152:3001/api',
   apiUrlMapBox:'http://143.198.174.152:3002',
+  front:  'http://143.198.174.152:4200/',
 
   getFintech:'/fintech',
   getAccount:'/fintech/account/',
