@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3001',
-  API_URI:'http://localhost:3001/api',
+  //apiUrl: 'http://localhost:3001',
+  //API_URI:'http://localhost:3001/api',
+  apiUrl: 'http://143.198.174.152:3001',
+  API_URI:'http://143.198.174.152:3001/api',
 
   getFintech:'/fintech',
   getAccount:'/fintech/account/',
