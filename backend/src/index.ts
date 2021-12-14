@@ -2,20 +2,14 @@ import express, { Application } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path'
-
 import indexRoutes from './routes/index-routes';
 import usersRoutes from './routes/users-routes';
 import litigiosRoutes from './routes/litigios.routes';
 import fintechRoutes from './routes/fintech.routes';
 import shipiFiRoutes from './routes/shippify.routes'
 
-
 class Server {
-
     public app: Application;
-
-    private io = require("socket.io")(this);
-
 
     constructor(){
         this.app = express();
@@ -30,8 +24,8 @@ class Server {
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended: false}));    
         this.app.use(express.static(path.join(__dirname, 'front')));
-    }
 
+    }
 
     routes(): void {
         this.app.use('/', indexRoutes);
@@ -43,19 +37,19 @@ class Server {
 
     start(): void {
         this.app.listen(this.app.get('port'), () => {
-            console.log(`Server on port`, this.app.get('port'))
+            console.log(`Server on port`, this.app.get('port'));
         })
     }
 
-
+    /*
     mapBoxSocketIo(): void {
-        const io = require('socket.io')(server, {
+        const io = require('socket.io')(this, {
             cors: {
                 origins: ['http://localhost:4200']
             }
         })
         
-        this.io.on('connection', (socket) => {
+        io.on('connection', (socket) => {
 
             socket.on('find-driver', ({points}) => {
                 console.log('......', points);
@@ -71,8 +65,8 @@ class Server {
             })
         })
     }
+    */
 }
 
 const server = new Server();
-server.start() ;
-server.mapBoxSocketIo();
+server.start();

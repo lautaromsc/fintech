@@ -27,7 +27,7 @@ import { InterceptorService } from './services/utils/interceptor.service';
 import { environment } from 'src/environments/environment';
 
 
-const config: SocketIoConfig = { url: environment.apiUrl , options: {}};
+const config: SocketIoConfig = { url: environment.apiUrlMapBox , options: {}};
 
 
 let materials = [

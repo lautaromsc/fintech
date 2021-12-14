@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   apiUrl: 'http://143.198.174.152:3001',
   API_URI:'http://143.198.174.152:3001/api',
-
+  apiUrlMapBox:'http://143.198.174.152:3002',
 
   getFintech:'/fintech',
   getAccount:'/fintech/account/',
