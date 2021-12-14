@@ -14,6 +14,9 @@ class Server {
 
     public app: Application;
 
+    private io = require("socket.io")(this);
+
+
     constructor(){
         this.app = express();
         this.config();
@@ -44,7 +47,32 @@ class Server {
         })
     }
 
+
+    mapBoxSocketIo(): void {
+        const io = require('socket.io')(server, {
+            cors: {
+                origins: ['http://localhost:4200']
+            }
+        })
+        
+        this.io.on('connection', (socket) => {
+
+            socket.on('find-driver', ({points}) => {
+                console.log('......', points);
+        
+                const counter = setInterval(() => {
+                    const coords = points.shift();
+                    if (!coords) {
+                        clearInterval(counter)
+                    } else {
+                        socket.emit('position', {coords});
+                    }
+                }, 2000)
+            })
+        })
+    }
 }
 
 const server = new Server();
-server.start();
+server.start() ;
+server.mapBoxSocketIo();
