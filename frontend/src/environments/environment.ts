@@ -7,6 +7,7 @@ export const environment = {
   apiUrl: 'http://localhost:3001',
   API_URI:'http://localhost:3001/api',
   apiUrlMapBox:'http://localhost:3002',
+  front:  'http://localhost:4200/',
   //apiUrl: 'http://143.198.174.152:3001',
   //API_URI:'http://143.198.174.152:3001/api',
 

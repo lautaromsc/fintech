@@ -24,11 +24,11 @@ export class NavbarComponent implements OnInit {
   }
 
   reload(){
-    window.location.href =  'http://localhost:4200/home/shipping'
+    window.location.href =   environment.front + '/home/shipping'
   }
-
+ 
   reloadTracking(){
-    window.location.href =  'http://localhost:4200/home/tracking'
+    window.location.href =  environment.front + 'home/tracking'
   }
 
 }
