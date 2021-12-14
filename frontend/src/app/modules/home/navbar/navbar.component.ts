@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
 
   public logout(){
     localStorage.setItem('userID', '')
-    this.router.navigate(['landing-page']);
+    this.router.navigate(['shippify']);
 
   }
 
