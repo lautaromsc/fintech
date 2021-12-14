@@ -64,25 +64,6 @@ pw : `up2021Fintech`
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 0|frontend | ✔ Browser application bundle generation complete.
 0|frontend |
 0|frontend | Warning: Unable to locate stylesheet: /var/www/fintech/frontend/https:/api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css
