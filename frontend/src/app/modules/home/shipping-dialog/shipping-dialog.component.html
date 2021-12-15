@@ -1,1 +1,94 @@
-<p>shipping-dialog works!</p>
+<div *ngIf="error" class="alert alert-danger animated fadeIn"> <h1> {{ mensaje }} </h1> </div>
+<div *ngIf="saveOk" class="alert alert-success animated fadeIn"> <h1> {{ mensaje }} </h1> </div>
+
+<!-- {{ response | json }} {{  form.value | json }} -->
+
+<mat-dialog-content class="mat-typography" style="margin-top: 6px;"> 
+
+<div style="display: flex;"> 
+
+    <mat-card class="wallet ">
+        <div>
+            <h1> Cuenta N°: {{ response?.body.data.id }} </h1>
+        </div>
+    
+    </mat-card>
+
+    <mat-card class="wallet">
+        <div>
+            <h1> Dinero disponible: $ {{ response?.body.data.amount }}  </h1>
+        </div>       
+    </mat-card>
+
+    <mat-card class="wallet">
+        <div>
+            <h1> Alias: {{ response?.body.data.alias }}  </h1>
+        </div>       
+    </mat-card>
+
+    <mat-card class="wallet">
+        <div>
+            <h1> CVU: {{ response?.body.data.cvu }} </h1>
+        </div>       
+    </mat-card>
+
+</div>
+
+
+
+
+  
+<div clas="container-fluid" style="padding-top: 1rem; padding-left: 8rem; padding-right: 6rem;">
+  
+        <div>
+
+            <h1> Transferir  Dinero</h1>
+        
+            <form [formGroup]="form" class="example-form">
+            
+                <div style="display: flex;"> 
+
+                <mat-form-field appearance="fill" class="example-full-width" style="width: 20rem;"  >
+                    <mat-label>Numero de CVU</mat-label>
+                    <input matInput  formControlName="TO_CBU">   
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="example-full-width" >
+                    <mat-label>Importe</mat-label>
+                    <input matInput type="number" formControlName="MONTO" >   
+                </mat-form-field>
+
+                <div style="margin-top: 6px;">
+                    <button mat-raised-button color="accent"  (click)="transferToCbu()" [disabled]="form.invalid" > 
+                        Transferir
+                    </button>
+                </div>
+
+                
+                </div>
+
+                
+                <div *ngIf="form.get('MONTO').errors?.pattern" style="padding: 0px !important;">
+                    <p class="text-danger" style="padding: 0px !important;"> Número invalido</p>
+                </div> 
+            
+            </form> 
+            
+        </div>
+
+
+
+
+  
+</div>
+
+
+
+
+
+</mat-dialog-content>
+
+
+
+
+

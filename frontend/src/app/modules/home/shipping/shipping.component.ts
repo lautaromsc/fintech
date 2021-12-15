@@ -114,6 +114,7 @@ export class ShippingComponent implements OnInit {
   public openDlg(row?): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = { };
+    dialogConfig.width = "1200px"
     let dialogRef = this._dialog.open(ShippingDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
