@@ -64,7 +64,7 @@ export class ShippingDialogComponent implements OnInit {
         (data: any) => {
           console.log(data)
           this.mensaje = data.message 
-          this.mensaje.includes('successful') ?  this.showOk() : this.showErr()
+          this.mensaje.includes('Realizada') ?  this.showOk() : this.showErr()
           this.initForm()
           this.get()
         },
@@ -81,7 +81,7 @@ export class ShippingDialogComponent implements OnInit {
     console.log(parseInt(this.data.amount))
     this.form = this._fb.group({
       FROM_CBU: new FormControl({ value: '', disabled: false },Validators.required),
-      TO_CBU: new FormControl({ value: '00034331700599230129', disabled: false },Validators.required),
+      TO_CBU: new FormControl({ value: '000003865817338658173', disabled: false },Validators.required),
       MONTO: new FormControl({ value: parseInt(this.data.amount), disabled: false },Validators.required),
     });
   }

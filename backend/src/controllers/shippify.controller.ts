@@ -86,10 +86,11 @@ class ShippifyController {
 
             let response = {
                 emailAdress: 'user.shippify@gmail.com',
-                estadoPago: 'Pago completado',
-                estadoEnvio: 'En camino!',
-                amount: '$10.000',
+                estadoPago: 'Pago realizado',
+                estadoEnvio: 'Pendiente de envio',
+                amount: 1000,
                 direccionEnvio: '1346 Rivadavia, General Pacheco, B1617',
+                details: "Celular Samsung S21 Ultra",
                 direccionEntrega: '-34.59930049636929, -58.438964691727605',
                 direccionSalida: '-34.47675875860508, -58.7486227774623'
             }

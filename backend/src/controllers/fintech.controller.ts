@@ -155,7 +155,7 @@ class FintechController {
             const response = await pool.query('INSERT INTO transfers (from_cvu, to_cvu, amount) values ($1, $2, $3)', [fromCvu, toCvu, amount]);
             console.log('finish inser transfer');
             return res.json({
-                message: 'Transfer successful', 
+                message: 'Transferencia Realizada', 
                 body: {
                     transfer: {
                         fromCvu,
@@ -180,7 +180,7 @@ class FintechController {
             const transfersReceived = await pool.query('SELECT * FROM transfers where to_cvu = $1', [cvu.toString()]);
             console.log(transfersReceived);
             return res.json({
-                message: 'Transfer successful', 
+                message: 'Transferencia Realizada', 
                 body: {
                     transfersSend: {
                         ...transfersSend.rows

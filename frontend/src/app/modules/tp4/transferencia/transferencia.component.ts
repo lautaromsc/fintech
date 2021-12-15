@@ -58,7 +58,7 @@ export class TransferenciaComponent implements OnInit {
         (data: any) => {
           console.log(data)
           this.mensaje = data.message 
-          this.mensaje.includes('successful') ?  this.showOk() : this.showErr()
+          this.mensaje.includes('Realizada') ?  this.showOk() : this.showErr()
           this.initForm()
           this.get()
         },
