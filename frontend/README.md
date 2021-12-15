@@ -1,17 +1,17 @@
 ## Commands
 
-run `ssh ssh root@143.198.174.152`/ ssh ssh root@143.198.174.152
+run `ssh root@143.198.174.152`/ ssh root@143.198.174.152
 
 
 
 run `pm2 start "ng serve --prod --host 0.0.0.0" --name frontend`
-run `pm2 save2`
+run `pm2 save`
 
 run `pm2 start "index.js" --name backend`
-run `pm2 save2`
+run `pm2 save`
 
 run `pm2 start "server.js" --name server`
-run `pm2 save2`
+run `pm2 save`
 
 run `nano /etc/nginx/sites-available/default`
 run `sudo systemctl restart nginx`  to enable your new nginx config.</li>
