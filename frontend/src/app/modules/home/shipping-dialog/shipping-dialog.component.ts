@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { first } from 'rxjs/operators';
 import { FintechService } from 'src/app/services/tps/fintech.service';
@@ -24,6 +25,7 @@ export class ShippingDialogComponent implements OnInit {
   public reporte: FormGroup;
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private _fintech: FintechService,
     public  _fb: FormBuilder,
   ) { 
@@ -75,10 +77,12 @@ export class ShippingDialogComponent implements OnInit {
 
 
   private initForm(): void{
+    console.log(this.data)
+    console.log(parseInt(this.data.amount))
     this.form = this._fb.group({
       FROM_CBU: new FormControl({ value: '', disabled: false },Validators.required),
       TO_CBU: new FormControl({ value: '00034331700599230129', disabled: false },Validators.required),
-      MONTO: new FormControl({ value: '', disabled: false },Validators.required),
+      MONTO: new FormControl({ value: parseInt(this.data.amount), disabled: false },Validators.required),
     });
   }
 

@@ -68,7 +68,7 @@ export class ShippingComponent implements OnInit {
       this.form.get('shippingState').setValue(data.estadoEnvio);
       this.form.get('amount').setValue(data.amount);
       this.form.get('adress').setValue(data.direccionEnvio);
-      this.form.get('shippingDetails').setValue(data.emailAdress);
+      this.form.get('shippingDetails').setValue(data.details);
     })
 
   }
@@ -113,8 +113,9 @@ export class ShippingComponent implements OnInit {
 
   public openDlg(row?): void {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.data = { };
+    dialogConfig.data = { amount: this.form.get('amount').value };
     dialogConfig.width = "1200px"
+    //dialogConfig.height = "400px"
     let dialogRef = this._dialog.open(ShippingDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
